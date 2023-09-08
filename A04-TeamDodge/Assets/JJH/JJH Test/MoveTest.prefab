@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7937244303180269347}
   - component: {fileID: 4762732746563795526}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: MoveTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c23296b88a21c4b86ffe16ed3e4e57, type: 3}
+  m_Name: Star1
+  m_EditorClassIdentifier: 
+  ItemType: 1
+  ItemName: Star1
+  ItemDescription: "\uC791\uC740 \uC810\uC218\uB97C \uC8FC\uB294 \uC544\uC774\uD15C"
+  Heal: 0
+  Score: 3

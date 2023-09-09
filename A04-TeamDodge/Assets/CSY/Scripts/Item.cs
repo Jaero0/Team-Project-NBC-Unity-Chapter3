@@ -3,34 +3,33 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public enum ITEMTYPE { FOOD, SCOREITEM, TOWER, POWERUP, SPEEDUP, WEAPON, ATTACKSPEEDUP}
+public enum ITEMTYPE { HEAL, SCORE, TOWER, WEAPON, POWERUP, MOVESPEEDUP, ATTACKSPEEDUP}
 public class Item : MonoBehaviour
 {
-    [SerializeField] private ITEMTYPE itemType;
-    public ITEMTYPE ItemType => itemType;
-
-    // 나중에 Item을 상속받는 클래스가 생기면 이 부분을 상속받은 클래스로 옮겨도 좋을듯
-    [SerializeField] private int heal;
-    [SerializeField] private string itemName;
-   
-    public int Heal => heal;
-    public string ItemName => itemName;
-
+    private ItemData itemData;
+    public ItemData ItemData => itemData;
 
     private void Awake()
     {
         gameObject.tag = "Item";
     }
 
-    public virtual void ItemUsed()
+
+    // 이전 버전과 오류없게 하기위해 남긴부분 수정후에 제거필요함
+    public string ItemName => ItemData.ItemName;
+    public int Heal => ItemData.Heal;
+    public ITEMTYPE ItemType => ItemData.ItemType;
+
+
+    public void ItemUsed()
     {
-        switch (ItemType)
+        switch (ItemData.ItemType)
         {
-            case ITEMTYPE.FOOD:
+            case ITEMTYPE.HEAL:
                 Destroy(gameObject);
                 break;
             
-            case ITEMTYPE.SCOREITEM:
+            case ITEMTYPE.SCORE:
                 Destroy(gameObject);
                 break;
             
@@ -42,7 +41,7 @@ public class Item : MonoBehaviour
                 Destroy(gameObject);
                 break;
             
-            case ITEMTYPE.SPEEDUP:
+            case ITEMTYPE.MOVESPEEDUP:
                 Destroy(gameObject);
                 break;
             
@@ -55,5 +54,9 @@ public class Item : MonoBehaviour
             default:
             break;
         }
+    }
+    public void InsertItemData(ItemData newItemData) 
+    { 
+        itemData = newItemData;
     }
 }

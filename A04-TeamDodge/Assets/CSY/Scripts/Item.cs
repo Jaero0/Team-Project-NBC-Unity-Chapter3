@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public enum ITEMTYPE { HEAL, SCORE, TOWER, WEAPON, POWERUP, MOVESPEEDUP, ATTACKSPEEDUP}
+public enum ITEMTYPE { HEAL, SCORE, TOWER, WEAPON, ATTACKPOWERUP, MOVESPEEDUP, ATTACKSPEEDUP}
 public class Item : MonoBehaviour
 {
+    [SerializeField]
     private ItemData itemData;
     public ItemData ItemData => itemData;
 
@@ -37,14 +38,18 @@ public class Item : MonoBehaviour
                 // 타워는 플레이어가 일정시간이상 근처에 머무르면 완성되어 적들을 자동공격하도록 만들어볼까 예정
                 break;
             
-            case ITEMTYPE.POWERUP:
+            case ITEMTYPE.ATTACKPOWERUP:
                 Destroy(gameObject);
                 break;
             
             case ITEMTYPE.MOVESPEEDUP:
                 Destroy(gameObject);
                 break;
-            
+
+            case ITEMTYPE.ATTACKSPEEDUP:
+                Destroy(gameObject);
+                break;
+
             case ITEMTYPE.WEAPON:
 
                 //무기를 여러 종류로 만든다면 구현할 예정

@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2c23296b88a21c4b86ffe16ed3e4e57, type: 3}
-  m_Name: ItemData
+  m_Name: TowerPart1
   m_EditorClassIdentifier: 
-  ItemType: 0
-  ItemName: "\uC774\uB984\uC5C6\uC74C"
-  ItemDescription: "\uC124\uBA85\uC744 \uB123\uC5B4\uC8FC\uC138\uC694"
+  ItemType: 2
+  ItemName: TowerPart1
+  ItemDescription: "\uD0C0\uC6CC\uB97C \uB9CC\uB4E4\uB54C \uB4E4\uC5B4\uAC00\uB294
+    \uC7AC\uB8CC 1"
   Heal: 0
-  Score: 0
+  Score: 6

@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13f881f699cdfc6469cacd0703579152, type: 3}
-  m_Name: BeforeUpdate
+  m_Script: {fileID: 11500000, guid: b2c23296b88a21c4b86ffe16ed3e4e57, type: 3}
+  m_Name: AttackPower
   m_EditorClassIdentifier: 
-  Score: 2
-  hp: 0
+  ItemType: 4
+  ItemName: AttackPower
+  ItemDescription: "\uACF5\uACA9 \uB370\uBBF8\uC9C0\uB97C \uC62C\uB824\uC8FC\uB294
+    \uC544\uC774\uD15C"
+  Heal: 0
+  Score: 6

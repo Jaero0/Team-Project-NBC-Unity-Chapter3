@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c23296b88a21c4b86ffe16ed3e4e57, type: 3}
   m_Name: BulletNumberUp
   m_EditorClassIdentifier: 
-  ItemType: 4
+  ItemType: 3
   ItemName: BulletNumberUp
   ItemDescription: "\uD22C\uC0AC\uCCB4 \uAC2F\uC218\uB97C \uB298\uB824\uC8FC\uB294
     \uC544\uC774\uD15C"

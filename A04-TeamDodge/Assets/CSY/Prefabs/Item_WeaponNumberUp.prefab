@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4746196432032352269}
   - component: {fileID: 3135929779413398818}
   m_Layer: 0
-  m_Name: Item_TowerPart1
+  m_Name: Item_WeaponNumberUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d5b74f972f650447900d9c61429f05f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: d48dafdfc82d68647875ba744c44df5d, type: 2}
+  itemData: {fileID: 11400000, guid: 831ba06f3eda0844d89e5dbd87eda3a2, type: 2}
 --- !u!1 &1433422044209339457
 GameObject:
   m_ObjectHideFlags: 0

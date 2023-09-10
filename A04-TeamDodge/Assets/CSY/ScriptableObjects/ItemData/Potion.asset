@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2c23296b88a21c4b86ffe16ed3e4e57, type: 3}
-  m_Name: Heal
+  m_Name: Potion
   m_EditorClassIdentifier: 
   ItemType: 0
-  ItemName: Heal
+  ItemName: Potion
   ItemDescription: "\uCCB4\uB825 \uD68C\uBCF5\uC744 \uD574\uC90D\uB2C8\uB2E4."
   Heal: 30
   Score: 10

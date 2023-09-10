@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2c23296b88a21c4b86ffe16ed3e4e57, type: 3}
-  m_Name: AttackSpeed
+  m_Name: BulletSizeUp
   m_EditorClassIdentifier: 
-  ItemType: 6
-  ItemName: AttackSpeed
-  ItemDescription: "\uACF5\uACA9\uC18D\uB3C4\uB97C \uC62C\uB824\uC8FC\uB294 \uC544\uC774\uD15C"
+  ItemType: 5
+  ItemName: BulletSizeUp
+  ItemDescription: "\uD22C\uC0AC\uCCB4 \uD06C\uAE30\uB97C \uB298\uB824\uC8FC\uB294
+    \uC544\uC774\uD15C"
   Heal: 0
   Score: 6

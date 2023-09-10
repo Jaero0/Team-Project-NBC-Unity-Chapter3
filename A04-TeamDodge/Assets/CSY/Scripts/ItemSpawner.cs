@@ -29,7 +29,7 @@ public class ItemSpawner : MonoBehaviour
             return instance;
         }
     }
-    public Dictionary<ItemData, int> PrefabIndex = new();
+    public Dictionary<ItemData, int> PrefabIndex = new(); 
 
     private void Awake()
     {
@@ -51,14 +51,14 @@ public class ItemSpawner : MonoBehaviour
     {
         for( int i=0;i<itemSpawnData.ItemPrefabs.Length;i++)
         {
-            MakeItemRandom(itemSpawnData.ItemPrefabs[i].GetComponent<Item>().ItemData, player.transform.position, 3);
+            MakeItem(itemSpawnData.ItemPrefabs[i].GetComponent<Item>().ItemData, player.transform.position, 3);
         }
     }
-    public void MakeItem(ItemData itemData, Vector3 position)
+    public void MakeDropItem(ItemData itemData, Vector3 monster)
     {
-        Instantiate(itemSpawnData.ItemPrefabs[PrefabIndex[itemData]], position, Quaternion.identity);
+        Instantiate(itemSpawnData.ItemPrefabs[PrefabIndex[itemData]], monster, Quaternion.identity);
     }
-    public void MakeItemRandom(ItemData itemData, Vector3 character, int randomDistance)
+    public void MakeItem(ItemData itemData, Vector3 character, int randomDistance)
     {
         float x = Random.Range(-1f,1f);
         float y = Random.Range(-1f,1f);

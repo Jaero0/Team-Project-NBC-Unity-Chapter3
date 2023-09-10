@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2986772107583469098}
   - component: {fileID: 3135929779413398818}
   m_Layer: 0
-  m_Name: Item_AttackPower
+  m_Name: Item_ShootingSpeedUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d5b74f972f650447900d9c61429f05f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: edbe9e0c0f79db6469e4f8d49697b527, type: 2}
+  itemData: {fileID: 11400000, guid: 08d59bd73bbba744d86a0e1f4de1e8d0, type: 2}
 --- !u!1 &1433422044209339457
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8f2f81deac585b94380f1b703ffb4e74, type: 2}
+  m_Sprite: {fileID: 21300000, guid: d6f4537195121c54092b8312ccfa9369, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

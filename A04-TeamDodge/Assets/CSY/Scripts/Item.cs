@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public enum ITEMTYPE { HEAL, SCORE, TOWER, WEAPON, ATTACKPOWERUP, MOVESPEEDUP, ATTACKSPEEDUP}
+public enum ITEMTYPE { POTION, SCORE, TOWER, WEAPON_NUMBER_UP, BULLET_NUMBER_UP, BULLET_SIZE_UP, MOVE_SPEED_UP, SHOOTING_SPEED_UP}
 public class Item : MonoBehaviour
 {
     [SerializeField]
@@ -15,44 +15,53 @@ public class Item : MonoBehaviour
         gameObject.tag = "Item";
     }
 
-
     // 이전 버전과 오류없게 하기위해 남긴부분 수정후에 제거필요함
     public string ItemName => ItemData.ItemName;
     public int Heal => ItemData.Heal;
     public ITEMTYPE ItemType => ItemData.ItemType;
 
-
-    public void ItemUsed()
+    public void OnPlayerPickUp()
     {
         switch (ItemData.ItemType)
         {
-            case ITEMTYPE.HEAL:
+            case ITEMTYPE.POTION:
+                ItemSpawner.Instance.MakeItem(ItemData,gameObject.transform.position,3);
                 Destroy(gameObject);
                 break;
             
             case ITEMTYPE.SCORE:
+                ItemSpawner.Instance.MakeItem(ItemData, gameObject.transform.position, 3);
                 Destroy(gameObject);
                 break;
             
             case ITEMTYPE.TOWER:
                 // 타워는 플레이어가 일정시간이상 근처에 머무르면 완성되어 적들을 자동공격하도록 만들어볼까 예정
-                break;
-            
-            case ITEMTYPE.ATTACKPOWERUP:
+                ItemSpawner.Instance.MakeItem(ItemData, gameObject.transform.position, 3);
                 Destroy(gameObject);
                 break;
             
-            case ITEMTYPE.MOVESPEEDUP:
+            case ITEMTYPE.BULLET_SIZE_UP:
+                ItemSpawner.Instance.MakeItem(ItemData, gameObject.transform.position, 3);
                 Destroy(gameObject);
                 break;
 
-            case ITEMTYPE.ATTACKSPEEDUP:
+            case ITEMTYPE.BULLET_NUMBER_UP:
+                ItemSpawner.Instance.MakeItem(ItemData, gameObject.transform.position, 3);
                 Destroy(gameObject);
                 break;
 
-            case ITEMTYPE.WEAPON:
+            case ITEMTYPE.MOVE_SPEED_UP:
+                ItemSpawner.Instance.MakeItem(ItemData, gameObject.transform.position, 3);
+                Destroy(gameObject);
+                break;
 
-                //무기를 여러 종류로 만든다면 구현할 예정
+            case ITEMTYPE.SHOOTING_SPEED_UP:
+                ItemSpawner.Instance.MakeItem(ItemData, gameObject.transform.position, 3);
+                Destroy(gameObject);
+                break;
+
+            case ITEMTYPE.WEAPON_NUMBER_UP:
+                ItemSpawner.Instance.MakeItem(ItemData, gameObject.transform.position, 3);
                 Destroy(gameObject);
                 break;
             
@@ -60,8 +69,12 @@ public class Item : MonoBehaviour
             break;
         }
     }
-    public void InsertItemData(ItemData newItemData) 
-    { 
-        itemData = newItemData;
-    }
+    //public void InsertItemData(ItemData newItemData) 
+    //{ 
+    //    itemData = newItemData;
+    //}
+    //public void SpinAroundCharacter()
+    //{
+
+    //}
 }

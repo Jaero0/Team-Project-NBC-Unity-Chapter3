@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemData", menuName = "ScriptableObjects/ItemData", order = 2)]
 public class ItemData : ScriptableObject
 {
-    public ITEMTYPE ItemType = ITEMTYPE.HEAL;
+    public ITEMTYPE ItemType = ITEMTYPE.POTION;
     public string ItemName = "이름없음";
     [TextArea(1,5)]
     public string ItemDescription = "설명을 넣어주세요";
@@ -41,7 +41,7 @@ public class ItemDataEditor : Editor
 
         switch (itemData.ItemType)
         {
-            case ITEMTYPE.HEAL:
+            case ITEMTYPE.POTION:
                 EditorGUILayout.PropertyField(healProp);
                 break;
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public enum ITEMTYPE { POTION, SCORE, TOWER, WEAPON_NUMBER_UP, BULLET_NUMBER_UP, BULLET_SIZE_UP, MOVE_SPEED_UP, SHOOTING_SPEED_UP}
+public enum ITEMTYPE { POTION, SCORE, WEAPON_NUMBER_UP, BULLET_NUMBER_UP, BULLET_SIZE_UP, MOVE_SPEED_UP, SHOOTING_SPEED_UP}
 public class Item : MonoBehaviour
 {
     [SerializeField]
@@ -30,12 +30,6 @@ public class Item : MonoBehaviour
                 break;
             
             case ITEMTYPE.SCORE:
-                ItemSpawner.Instance.MakeItem(ItemData, gameObject.transform.position, 3);
-                Destroy(gameObject);
-                break;
-            
-            case ITEMTYPE.TOWER:
-                // 타워는 플레이어가 일정시간이상 근처에 머무르면 완성되어 적들을 자동공격하도록 만들어볼까 예정
                 ItemSpawner.Instance.MakeItem(ItemData, gameObject.transform.position, 3);
                 Destroy(gameObject);
                 break;

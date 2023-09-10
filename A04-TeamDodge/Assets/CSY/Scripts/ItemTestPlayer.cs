@@ -36,12 +36,6 @@ public class ItemTestPlayer : MonoBehaviour
 
                     break;
 
-                case ITEMTYPE.TOWER:
-                    Debug.Log("타워 부품을 획득했다.");
-
-                    // 타워는 플레이어가 일정시간이상 근처에 머무르면 완성되어 적들을 자동공격하도록 만들어볼까 예정
-                    break;
-
                 case ITEMTYPE.BULLET_SIZE_UP:
 
                     Debug.Log("발사체의 크기가 증가했다.");

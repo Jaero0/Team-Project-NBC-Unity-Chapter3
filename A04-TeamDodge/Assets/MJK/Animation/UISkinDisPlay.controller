@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: SkinId
+    m_ConditionEvent: Skinid
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1075915372076561412}
@@ -34,7 +34,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: SkinId
+    m_ConditionEvent: Skinid
     m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2574404191772690574}
@@ -85,7 +85,7 @@ AnimatorController:
   m_Name: UISkinDisPlay
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: SkinId
+  - m_Name: Skinid
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -165,7 +165,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: SkinId
+    m_ConditionEvent: Skinid
     m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6567935927795117473}
@@ -195,7 +195,7 @@ AnimatorStateMachine:
     m_Position: {x: 250, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6567935927795117473}
-    m_Position: {x: 500, y: 120, z: 0}
+    m_Position: {x: 510, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2574404191772690574}
     m_Position: {x: 760, y: 120, z: 0}

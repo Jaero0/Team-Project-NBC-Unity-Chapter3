@@ -7,8 +7,11 @@ public class CharacterEventController : MonoBehaviour
 {
     public event Action<Vector2> OnMoveEvent;
     public event Action<Vector2> OnLookEvent;
-    public event Action<bool> OnShootEvent;
+    public event Action OnDeathEvent;
+    public event Action OnShootEvent;
+    public float skillTime = 2.0f;
 
+    [SerializeField] private GameObject skill;
     public void CallMoveEvent(Vector2 direction)
     {
         OnMoveEvent?.Invoke(direction);
@@ -21,6 +24,23 @@ public class CharacterEventController : MonoBehaviour
 
     public void CallShootEvent(bool isShooting)
     {
-        OnShootEvent?.Invoke(isShooting);
+        OnShootEvent?.Invoke();
+    }
+
+    public void CallSkill(bool isShooting)
+    {
+        skill.SetActive(isShooting);
+        Invoke("DeactivateSkill", skillTime);
+    }
+
+    public void CallDeathEvent()
+    {
+        Debug.Log("Died!");
+        OnDeathEvent?.Invoke();
+    }
+
+    private void DeactivateSkill()
+    {
+        GameObject.Find("Skill")?.SetActive(false);
     }
 }

@@ -27,9 +27,20 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject gainVolBtn;
     RectTransform volBarRectTran;
 
+    [SerializeField] GameObject changeScreenImg;
+    [SerializeField] Toggle fullScreenToggle;
+    [SerializeField] TMP_Dropdown changeScreenDropdown;
+    FullScreenMode fullScreenMode;
+    private List<Resolution> resolutions = new List<Resolution>();
+    private int resolutionNum;
+    
+
     private float leftTime;
     private string leftTimeMinute;
     private string leftTimeSecond;
+
+    private float volumeControlNum;
+    private float cursorVolumeControlNum;
 
 
     void Awake()
@@ -44,12 +55,16 @@ public class UIManager : MonoBehaviour
         uiManagerAudioSource.clip = audioManager.mainBgm;
 
         volBarRectTran = volumeFillBar.GetComponent<RectTransform>();
+
+        InitScreenResolution();
     }
 
     void Start()
     {
         uiManagerAudioSource.Play();
         leftTime = 25f;
+        volumeControlNum = uiManagerAudioSource.volume * 0.25f;
+        cursorVolumeControlNum = cursorManagerAudioSource.volume * 0.25f;
         menuAnim.SetBool("isMenuOpened", true);
     }
 
@@ -150,14 +165,14 @@ public class UIManager : MonoBehaviour
     {
         //94 min 90 max 560
         volBarRectTran.sizeDelta -= new Vector2(94, 0);
-        uiManagerAudioSource.volume -= 0.09f;
-        cursorManagerAudioSource.volume -= 0.06f;
+        uiManagerAudioSource.volume -= volumeControlNum;
+        cursorManagerAudioSource.volume -= cursorVolumeControlNum;
 
-        if (volBarRectTran.sizeDelta.x <= 91)
+        if (volBarRectTran.sizeDelta.x <= 1)
         {
             reduceVolBtn.GetComponent<Button>().interactable = false;
         }
-        else if(volBarRectTran.sizeDelta.x > 91)
+        else if(volBarRectTran.sizeDelta.x > 1)
         {
             gainVolBtn.GetComponent<Button>().interactable = true;
         }
@@ -167,8 +182,8 @@ public class UIManager : MonoBehaviour
     {
         //94 min 90 max 560
         volBarRectTran.sizeDelta += new Vector2(94, 0);
-        uiManagerAudioSource.volume += 0.09f;
-        cursorManagerAudioSource.volume += 0.06f;
+        uiManagerAudioSource.volume += volumeControlNum;
+        cursorManagerAudioSource.volume += cursorVolumeControlNum;
 
         if (volBarRectTran.sizeDelta.x >= 559)
         {
@@ -180,4 +195,61 @@ public class UIManager : MonoBehaviour
         }
     }
     // --------------------------------------------------
+
+
+
+    // -------------ChangeScreenOption-------------------
+    public void OnClickChangeScreenOpenBtn()
+    {
+        changeScreenImg.SetActive(true);
+        menuCloseBtn.SetActive(false);
+    }
+
+    public void OnClickChangeScreenCloseBtn()
+    {
+        changeScreenImg.SetActive(false);
+        menuCloseBtn.SetActive(true);
+    }
+
+    private void InitScreenResolution() // make Screen Resolutions and add it into Dropdown
+    {
+        resolutions.AddRange(Screen.resolutions);
+        changeScreenDropdown.options.Clear();
+
+        int screenOptionNum = 0;
+        foreach (Resolution item in resolutions)
+        {
+            TMP_Dropdown.OptionData option = new TMP_Dropdown.OptionData();
+
+            option.text = item.width + " x " + item.height + " " + item.refreshRateRatio + "hz";
+            changeScreenDropdown.options.Add(option);
+
+            if (item.width == Screen.width && item.height == Screen.height)
+            {
+                changeScreenDropdown.value = screenOptionNum;
+            }
+            screenOptionNum++;
+        }
+        changeScreenDropdown.RefreshShownValue();
+
+        fullScreenToggle.isOn = Screen.fullScreenMode.Equals(FullScreenMode.FullScreenWindow) ? true : false;
+    }
+
+    public void OnClickChangeScreenDropdown(int x) //get num of choosen Screen Resolution from Dropdown
+    {
+        resolutionNum = x;
+    }
+
+    public void OnClickFullScreenToggle(bool isFull) // check Screen is already fulled or not
+    {
+        fullScreenMode = isFull ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
+    }
+
+    public void OnClickAdmitScreenChangeBtn() // Click Admit Btn, set up Screen Resolution and Fulled Window
+    {
+        Screen.SetResolution(resolutions[resolutionNum].width, resolutions[resolutionNum].height, fullScreenMode);
+        changeScreenImg.SetActive(false);
+        menuCloseBtn.SetActive(true);
+    }
+    //-----------------------------------------------------
 }

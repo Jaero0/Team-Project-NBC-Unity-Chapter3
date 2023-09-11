@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MJK Scene/MJK StartScene.unity
+    path: Assets/Scenes/StartScene.unity
     guid: 9156365fe3c034139ad4e005bcb7ba74
   - enabled: 1
-    path: Assets/Scenes/MJK Scene/MJK LevelScene.unity
+    path: Assets/Scenes/LevelScene.unity
     guid: 2ec2c29dedfcb4adbaf5e27ae7ff7436
+  - enabled: 1
+    path: Assets/Scenes/Lv1Scene.unity
+    guid: 8b3d068ae99e63a4baed31a041f16048
+  - enabled: 1
+    path: Assets/Scenes/Lv2Scene.unity
+    guid: b7bd9917b3aa090449f434b43d58e5c1
+  - enabled: 1
+    path: Assets/Scenes/Lv3Scene.unity
+    guid: d5a9a7c9606f9c7428e95d5208ced3b3
   m_configObjects: {}

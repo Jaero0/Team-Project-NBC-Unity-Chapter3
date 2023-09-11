@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class JJHUIManager : MonoBehaviour
 {
@@ -33,7 +34,6 @@ public class JJHUIManager : MonoBehaviour
     FullScreenMode fullScreenMode;
     private List<Resolution> resolutions = new List<Resolution>();
     private int resolutionNum;
-    
 
     private float leftTime;
     private string leftTimeMinute;
@@ -41,7 +41,6 @@ public class JJHUIManager : MonoBehaviour
 
     private float volumeControlNum;
     private float cursorVolumeControlNum;
-
 
     void Awake()
     {
@@ -62,21 +61,18 @@ public class JJHUIManager : MonoBehaviour
     void Start()
     {
         uiManagerAudioSource.Play();
-        leftTime = 25f;
+        leftTime = 40f;
         volumeControlNum = uiManagerAudioSource.volume * 0.25f;
         cursorVolumeControlNum = cursorManagerAudioSource.volume * 0.25f;
         menuAnim.SetBool("isMenuOpened", true);
     }
 
-    // Update is called once per frame
     void Update()
     {
         LeftTime();
     }
 
-
-
-    // ----------------- Time Methods-------------------
+    #region timeMethods
     private void LeftTime()
     {
         hourGlassAnim.SetBool("isStopped", false);
@@ -119,17 +115,15 @@ public class JJHUIManager : MonoBehaviour
         leftTimeTxt.color = Color.red;
         leftTimeTxt.text = $"보스 등장!";
     }
-    // -------------------------------------------------
+    #endregion
 
-
-
-    // ------------ MenuClickMethods -------------------
+    #region MenuClickMethods
     public void OnClickInvokeMenuOpenBtn()
     {
         menuAnim.SetBool("isOpenning", true);
         menuOpenBtn.SetActive(false);
         menuCloseBtn.SetActive(true);
-        Invoke("TimeScaleZeroMethod", 0.065f);
+        Invoke("TimeScaleZeroMethod", 0.1f);
     }
 
     private void TimeScaleZeroMethod()
@@ -144,11 +138,9 @@ public class JJHUIManager : MonoBehaviour
         menuOpenBtn.SetActive(true);
         menuCloseBtn.SetActive(false);
     }
-    // -------------------------------------------------
+    #endregion
 
-
-
-    // ------------ VolumeControlMethods ----------------
+    #region VolumeControlMethods
     public void OnClickVolumeControlOpenBtn()
     {
         volumeControlImg.SetActive(true);
@@ -194,11 +186,9 @@ public class JJHUIManager : MonoBehaviour
             reduceVolBtn.GetComponent<Button>().interactable = true;
         }
     }
-    // --------------------------------------------------
+    #endregion
 
-
-
-    // -------------ChangeScreenOption-------------------
+    #region ChangeScreenOptionMethods
     public void OnClickChangeScreenOpenBtn()
     {
         changeScreenImg.SetActive(true);
@@ -251,5 +241,12 @@ public class JJHUIManager : MonoBehaviour
         changeScreenImg.SetActive(false);
         menuCloseBtn.SetActive(true);
     }
-    //-----------------------------------------------------
+    #endregion
+
+    #region BackToMainMenuMethods
+    public void OnClickBackToMainMenuBtn()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
+    #endregion
 }

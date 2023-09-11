@@ -46,7 +46,6 @@ public class MagneticCollider : MonoBehaviour
     {
         if(target != null) 
         {
-            Vector2 direction = target.transform.position - RootGameObject.transform.position;
             Vector2 newPosition = Vector2.Lerp(RootGameObject.transform.position, target.transform.position, 0.05f);
             rigid.MovePosition(newPosition);
         }

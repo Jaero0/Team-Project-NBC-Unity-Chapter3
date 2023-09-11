@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1594436340394625000}
   - component: {fileID: 2986772107583469098}
-  - component: {fileID: 8515591244504939649}
+  - component: {fileID: 4746196432032352269}
   - component: {fileID: 3135929779413398818}
   m_Layer: 0
-  m_Name: Item
+  m_Name: Item_WeaponNumberUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 5368276288670017652}
   - {fileID: 397106344570718934}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &2986772107583469098
 CircleCollider2D:
@@ -70,8 +70,8 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2
---- !u!50 &8515591244504939649
+  m_Radius: 0.1
+--- !u!50 &4746196432032352269
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -110,9 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d5b74f972f650447900d9c61429f05f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
-  heal: 100
-  itemName: "\uC774\uB984\uC744 \uC9C0\uC5B4\uC8FC\uC138\uC694"
+  itemData: {fileID: 11400000, guid: 831ba06f3eda0844d89e5dbd87eda3a2, type: 2}
 --- !u!1 &1433422044209339457
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +122,7 @@ GameObject:
   - component: {fileID: 5368276288670017652}
   - component: {fileID: 5459497095114823194}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +184,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9ea72647c24be493ba6f15a9cd2a24ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eed3519d1a59b334a96e8fba65a59318, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -264,7 +262,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 0.5
 --- !u!114 &3257157018444899145
 MonoBehaviour:
   m_ObjectHideFlags: 0

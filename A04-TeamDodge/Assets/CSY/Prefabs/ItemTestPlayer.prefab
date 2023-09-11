@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8180964218297716927}
   - component: {fileID: 5050465720330937208}
   - component: {fileID: 7442476720803794477}
+  - component: {fileID: -235231837741633982}
   m_Layer: 0
   m_Name: ItemTestPlayer
   m_TagString: Player
@@ -28,11 +29,11 @@ Transform:
   m_GameObject: {fileID: 8628598969807472976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8180964218297716927
 SpriteRenderer:
@@ -120,7 +121,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.7
 --- !u!114 &7442476720803794477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,3 +136,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: "\uD14C\uC2A4\uD2B8\uC6A9 \uB9C8\uC6B0\uC2A4\uB85C \uB04C\uC5B4\uC11C
     \uC0AC\uC6A9\uD558\uC138\uC694"
+--- !u!114 &-235231837741633982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8628598969807472976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: ceabf9f88c7653c42b668b5590bba68d, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6b0c97ba-3030-4a68-bb8e-a2978f6f95c4
+    m_ActionName: ItemTestPlayer/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3f15ebb0-a495-4bf1-828d-3c0d4707962f
+    m_ActionName: ItemTestPlayer/BuildTower[/Keyboard/2]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5e498501-7774-4dfc-8e24-f11cbd28f231
+    m_ActionName: ItemTestPlayer/UseItem[/Keyboard/1]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: ItemTestPlayer
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

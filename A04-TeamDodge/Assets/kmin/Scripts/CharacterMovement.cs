@@ -7,6 +7,8 @@ public class CharacterMovement : MonoBehaviour
     private CharacterEventController _controller;
     private Vector2 direction = Vector2.zero;
     [SerializeField] private float moveSpeed;
+
+    [SerializeField] Animator animator;
     private void Awake()
     {
         _controller = GetComponent<CharacterEventController>();
@@ -21,11 +23,16 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         transform.Translate(direction * moveSpeed * Time.deltaTime);
+        if (direction == Vector2.zero)
+        {
+            animator.SetBool("isMoving", false);
+        }
     }
 
     private void Move(Vector2 _direction)
     {
         direction = _direction;
+        animator.SetBool("isMoving", true);
     }
 
 }

@@ -8,9 +8,13 @@ public class CharacterAim : MonoBehaviour
     [SerializeField] private SpriteRenderer playerSprite;
     [SerializeField] private SpriteRenderer[] weaponSprite;
     [SerializeField] private Transform[] weaponPivot;
+    [SerializeField] private Transform weaponOrigin;
     [SerializeField] private float shootingSpeed;
+    [SerializeField] private float shootInterval;
+    private float shootCool = 0;
     float angle = 0;
     Vector2 direction = Vector2.zero;
+    Vector2 shootDirection = Vector2.zero;
 
     private void Awake()
     {
@@ -24,7 +28,11 @@ public class CharacterAim : MonoBehaviour
 
     void Update()
     {
-        
+        if(shootCool < shootInterval)
+        {
+            shootCool += Time.deltaTime;
+        }
+        weaponOrigin.Translate((Vector3)shootDirection * shootingSpeed * Time.deltaTime, Space.World);
     }
 
     private void Look(Vector2 _direction)
@@ -40,18 +48,20 @@ public class CharacterAim : MonoBehaviour
         
     }
 
-    private void Shoot(bool isShooting)
+    private void Shoot()
     {
-        //Debug.Log($"Shoot Here : {direction}");
-        foreach (var weapon in weaponPivot)
+        if (shootCool > shootInterval)
         {
-            weapon.Translate((Vector3)direction * shootingSpeed * Time.deltaTime, Space.World);
+            shootDirection = direction;
+            Invoke("ResetPosition", shootInterval);
+            shootCool = 0;
         }
+    }
 
-        //foreach (var weapon in weaponPivot)
-        //{
-        //    weapon.position -= (Vector3)direction * shootingSpeed * Time.deltaTime;
-        //}
+    private void ResetPosition()
+    {
+        weaponOrigin.position = transform.position;
+        shootDirection = Vector2.zero;
     }
 
 }

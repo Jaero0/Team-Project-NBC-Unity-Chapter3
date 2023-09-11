@@ -29,7 +29,7 @@
                     "id": "9d3d05c8-03bf-4e08-9ed9-02626e282a79",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold(pressPoint=1)",
                     "initialStateCheck": true
                 }
             ],
@@ -104,7 +104,7 @@
                     "name": "",
                     "id": "a33096ea-c4db-4ac6-936c-73154d1cb708",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Hold(duration=0.8)",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Shoot",

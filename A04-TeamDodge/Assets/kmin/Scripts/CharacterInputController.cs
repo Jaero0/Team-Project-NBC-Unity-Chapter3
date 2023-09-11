@@ -31,7 +31,10 @@ public class CharacterInputController : CharacterEventController
     {
         bool isPressed = (value.Get<float>() > 0)? true : false;
         Debug.Log(value.Get<float>());
-        CallShootEvent(isPressed);
+        CallShootEvent(value.isPressed);
+        if(value.Get<float>()>=1.0f)
+            CallSkill(value.isPressed);
+        
     }
 
 }

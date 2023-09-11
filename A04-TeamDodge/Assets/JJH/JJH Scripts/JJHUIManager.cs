@@ -5,7 +5,7 @@ using TMPro;
 using System;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class JJHUIManager : MonoBehaviour
 {
     [SerializeField] TMP_Text leftTimeTxt;
 

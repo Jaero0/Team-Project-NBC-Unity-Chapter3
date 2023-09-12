@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MonsterManager : MonoBehaviour
 {
@@ -10,13 +13,23 @@ public class MonsterManager : MonoBehaviour
     public static MonsterManager Instance => I;
 
 
-    public GameObject TargetGameObject => targetGameObject;
+    public MonsterTable.TABLE[] MonsterTable => m_monsterTable.monsterTable;
+
+    public GameObject TargetGameObject => m_targetGameObject;
 
 
-    /// <summary>
-    /// 객체가 만들어 질 때 호출되 초기화 합니다.
-    /// </summary>
-    public void Awake()
+    public void AddMonsterDieEvent(Action<int, Vector3> action)
+    {
+        m_monsterDieEvent += action;
+    }
+
+    public void CallMonsterDieEvent(int identifier, Vector3 position)
+    {
+        m_monsterDieEvent.Invoke(identifier, position);
+    }
+
+
+    private void Awake()
     {
 
         //싱글턴을 적용합니다.
@@ -26,64 +39,54 @@ public class MonsterManager : MonoBehaviour
     }
 
 
-    /// <summary>
-    /// 객체가 파괴 될 때 호출됩니다.
-    /// </summary>
-    public void OnDestroy()
+    private void OnDestroy()
     {
         //싱글턴을 해제합니다.
         I = null;
     }
 
 
-    /// <summary>
-    /// 객체가 활성화 될 때 호출되 초기화 합니다.
-    /// </summary>
-    public void Start()
+    private void Start()
     {
-        InvokeRepeating("CreateMonster", 0, monsterSpawnData.monsterSpawnTime);
-        InvokeRepeating("CreateBullet", 0, monsterSpawnData.bulletSpawnTime);
+        InvokeRepeating("CreateMonster", 0, m_monsterSpawnData.monsterSpawnTime);
+        InvokeRepeating("CreateBullet", 0, m_monsterSpawnData.bulletSpawnTime);
+        AddMonsterDieEvent(OnMonsterDieEvent);
     }
 
 
-    /// <summary>
-    /// 몬스터를 생성합니다.
-    /// </summary>
-    public void CreateMonster()
+    private void CreateMonster()
     {
 
-        if(!monsterSpawnOnOff)
+        if(!m_monsterSpawnOnOff)
         {
             return;
         }
 
-        float radian = Random.Range(0, Mathf.PI * 2.0f);
+        float radian = UnityEngine.Random.Range(0, Mathf.PI * 2.0f);
 
-        Vector2 position = new Vector2(Mathf.Cos(radian) * monsterSpawnData.monsterSpawnDistance, Mathf.Sin(radian) * monsterSpawnData.monsterSpawnDistance);
+        Vector2 position = new Vector2(Mathf.Cos(radian) * m_monsterSpawnData.monsterSpawnDistance, Mathf.Sin(radian) * m_monsterSpawnData.monsterSpawnDistance);
 
-        int select          = Random.Range(0, monsterSpawnData.monsterPrefabArray.Length);
-        var monster         = Instantiate(monsterSpawnData.monsterPrefabArray[select], position, Quaternion.identity);
+        int select          = UnityEngine.Random.Range(0, m_monsterSpawnData.monsterPrefabArray.Length);
+        var monster         = Instantiate(m_monsterSpawnData.monsterPrefabArray[select], position, Quaternion.identity);
 
     }
 
-    /// <summary>
-    /// 미사일을 생성합니다.
-    /// </summary>
-    public void CreateBullet()
+
+    private void CreateBullet()
     {
 
-        if (!bulletSpawnOnOff)
+        if (!m_bulletSpawnOnOff)
         {
             return;
         }
 
         //생성될 위치를 계산하고 
-        float   radian      = Random.Range(0, Mathf.PI * 2.0f);
-        Vector3 position    = new Vector2(Mathf.Cos(radian) * monsterSpawnData.bulletSpawnDistance, Mathf.Sin(radian) * monsterSpawnData.bulletSpawnDistance);
+        float   radian      = UnityEngine.Random.Range(0, Mathf.PI * 2.0f);
+        Vector3 position    = new Vector2(Mathf.Cos(radian) * m_monsterSpawnData.bulletSpawnDistance, Mathf.Sin(radian) * m_monsterSpawnData.bulletSpawnDistance);
 
         //생성합니다.
-        int select                          = Random.Range(0, monsterSpawnData.bulletPrefabArray.Length);
-        var bullet                          = Instantiate(monsterSpawnData.bulletPrefabArray[select], position, Quaternion.identity);
+        int select                          = UnityEngine.Random.Range(0, m_monsterSpawnData.bulletPrefabArray.Length);
+        var bullet                          = Instantiate(m_monsterSpawnData.bulletPrefabArray[select], position, Quaternion.identity);
         var bulletScript                    = bullet.GetComponent<Bullet>();
         var bulletMovementDirection         = bullet.GetComponent<MovementBase>();
         bulletScript.TargetTag              = "Player";
@@ -91,12 +94,28 @@ public class MonsterManager : MonoBehaviour
 
     }
 
-    [SerializeField] private GameObject         targetGameObject;
 
-    [SerializeField] private MonsterSpawnData   monsterSpawnData;
+    private void OnMonsterDieEvent(int identifier, Vector3 position)
+    {
 
-    [SerializeField] private bool               monsterSpawnOnOff;
-    [SerializeField] private bool               bulletSpawnOnOff;
+        if(MonsterTable[identifier].itemDropArray.Count() != 0)
+        {
+            var select = UnityEngine.Random.Range(0, MonsterTable[identifier].itemDropArray.Count());
+            ItemSpawner.Instance.MakeDropItem(MonsterTable[identifier].itemDropArray[select], position);
+        }
+        
 
+    }
+
+    [SerializeField] private GameObject         m_targetGameObject;
+
+    [SerializeField] private MonsterTable       m_monsterTable;
+    [SerializeField] private MonsterSpawnData   m_monsterSpawnData;
+
+    [SerializeField] private bool               m_monsterSpawnOnOff;
+    [SerializeField] private bool               m_bulletSpawnOnOff;
+
+
+    private event Action<int, Vector3> m_monsterDieEvent;
 
 }

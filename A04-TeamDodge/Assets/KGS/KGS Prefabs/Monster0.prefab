@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae3c4146c2c7f24ebf9ecff514c5a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_identifier: 0
   m_spriteRenderer: {fileID: 2957865225430049298}
   m_animator: {fileID: 4374195901031732789}
   m_flipSpriteX: 1
@@ -78,7 +79,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &5816721417121174944
 BoxCollider2D:
   m_ObjectHideFlags: 0

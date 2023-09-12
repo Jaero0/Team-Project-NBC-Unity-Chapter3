@@ -25,6 +25,7 @@ public class Monster : MonoBehaviour, IBulletEvent
         m_status.hp -= (int)damage;
         if(m_status.hp <= 0)
         {
+            MonsterManager.Instance.CallMonsterDieEvent(m_identifier, transform.position);
             Destroy(gameObject);
         }
     }
@@ -40,8 +41,7 @@ public class Monster : MonoBehaviour, IBulletEvent
         Debug.Assert(m_movement != null);
 
         //테이블에서 데이터를 가져옵니다.
-        var data = MonsterTable.Instance.Find(m_identifier);
-        m_status.hp = data.hp;
+        m_status.hp = MonsterManager.Instance.MonsterTable[m_identifier].hp;
 
     }
 
@@ -66,7 +66,16 @@ public class Monster : MonoBehaviour, IBulletEvent
             m_spriteRenderer.flipY = m_movement.Direction.y < 0.0f;
         }
 
+
+        //화면 밖으로 넘어갔으면 삭제됩니다.
+        if (Mathf.Abs(transform.position.x) >= 20.0f ||
+           Mathf.Abs(transform.position.y) >= 20.0f)
+        {
+            Destroy(gameObject);
+        }
+
     }
+
 
     protected STATUS                            m_status; 
 

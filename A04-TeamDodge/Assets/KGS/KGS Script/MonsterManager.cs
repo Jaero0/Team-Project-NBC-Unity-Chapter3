@@ -19,7 +19,7 @@ public class MonsterManager : MonoBehaviour
     public void Awake()
     {
 
-        //싱긍턴을 적용합니다.
+        //싱글턴을 적용합니다.
         Debug.Assert(Instance == null);
         I = this;
 
@@ -41,7 +41,8 @@ public class MonsterManager : MonoBehaviour
     /// </summary>
     public void Start()
     {
-        InvokeRepeating("CreateMonster", 0, monsterSpawnData.spawnTime);
+        InvokeRepeating("CreateMonster", 0, monsterSpawnData.monsterSpawnTime);
+        InvokeRepeating("CreateBullet", 0, monsterSpawnData.bulletSpawnTime);
     }
 
 
@@ -58,20 +59,44 @@ public class MonsterManager : MonoBehaviour
 
         float radian = Random.Range(0, Mathf.PI * 2.0f);
 
-        Vector2 position = new Vector2(Mathf.Cos(radian) * monsterSpawnData.distance, Mathf.Sin(radian) * monsterSpawnData.distance);
+        Vector2 position = new Vector2(Mathf.Cos(radian) * monsterSpawnData.monsterSpawnDistance, Mathf.Sin(radian) * monsterSpawnData.monsterSpawnDistance);
 
         int select          = Random.Range(0, monsterSpawnData.monsterPrefabArray.Length);
         var monster         = Instantiate(monsterSpawnData.monsterPrefabArray[select], position, Quaternion.identity);
 
     }
 
+    /// <summary>
+    /// 미사일을 생성합니다.
+    /// </summary>
+    public void CreateBullet()
+    {
 
+        if (!bulletSpawnOnOff)
+        {
+            return;
+        }
+
+        //생성될 위치를 계산하고 
+        float   radian      = Random.Range(0, Mathf.PI * 2.0f);
+        Vector3 position    = new Vector2(Mathf.Cos(radian) * monsterSpawnData.bulletSpawnDistance, Mathf.Sin(radian) * monsterSpawnData.bulletSpawnDistance);
+
+        //생성합니다.
+        int select                          = Random.Range(0, monsterSpawnData.bulletPrefabArray.Length);
+        var bullet                          = Instantiate(monsterSpawnData.bulletPrefabArray[select], position, Quaternion.identity);
+        var bulletScript                    = bullet.GetComponent<Bullet>();
+        var bulletMovementDirection         = bullet.GetComponent<MovementBase>();
+        bulletScript.TargetTag              = "Player";
+        bulletMovementDirection.Direction   = Vector3.Normalize(TargetGameObject.transform.position - position);
+
+    }
 
     [SerializeField] private GameObject         targetGameObject;
 
     [SerializeField] private MonsterSpawnData   monsterSpawnData;
 
     [SerializeField] private bool               monsterSpawnOnOff;
+    [SerializeField] private bool               bulletSpawnOnOff;
 
 
 }

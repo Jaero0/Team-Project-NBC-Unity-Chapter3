@@ -926,8 +926,8 @@ MonoBehaviour:
   IsInteractable: 0
   PlayerEntered: 0
   BuildOver: 0
-  MagneticCollider: {fileID: 0}
-  InteractCollider: {fileID: 0}
+  MagneticCollider: {fileID: 7790181664345122904}
+  InteractCollider: {fileID: 6754981704211189922}
   WeaponTower: {fileID: 3190028392941461436}
   GageBar: {fileID: 4563428874432746794}
   BulletPrefab: {fileID: 8920712846653067198, guid: 2c3f006dd1654bd4f8e0c8ed12407488, type: 3}
@@ -1124,6 +1124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a804dcd548fa71a4295675e8b09843de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TowerGameObject: {fileID: 5888259506820261100}
+  tower: {fileID: 0}
 --- !u!1 &7790181664345122904
 GameObject:
   m_ObjectHideFlags: 0

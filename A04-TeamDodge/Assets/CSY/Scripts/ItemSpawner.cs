@@ -101,6 +101,16 @@ public class ItemSpawner : MonoBehaviour
             MakeItem(Scores[random % Scores.Length], character, randomDistance);
         }
     }
+    public void MakeTower(ItemData itemData, Vector3 character, int randomDistance)
+    {
+        Debug.Log("아이템스포너가 타워생성 호출당함");
+        float x = Random.Range(-1f, 1f);
+        float y = Random.Range(-1f, 1f);
+        Vector3 newVector = new Vector3(x, y, 0f).normalized * randomDistance + new Vector3(character.x + x, character.y + y, 0);
+        var tower = Instantiate(itemSpawnData.ItemPrefabs[PrefabIndex[itemData]], newVector, Quaternion.identity);
+        Debug.Log("타워의 SetDroppedStatus 함수를 호출함");
+        tower.GetComponent<Tower>().SetDroppedStatus();
+    }
 }
 
 [CreateAssetMenu(fileName = "ItemSpawnData", menuName = "ScriptableObjects/ItemSpawnData", order = 3)]

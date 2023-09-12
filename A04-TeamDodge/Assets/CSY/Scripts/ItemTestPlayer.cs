@@ -11,7 +11,7 @@ public class ItemTestPlayer : MonoBehaviour
     private Vector2 direction = Vector2.zero;
     private float moveSpeed = 2f;
 
-    private int tower = 0;
+    private int towerParts = 0;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Item"))
@@ -68,7 +68,7 @@ public class ItemTestPlayer : MonoBehaviour
                     break;
                 case ITEMTYPE.TOWER:
                     Debug.Log("타워를 얻었습니다.");
-                    tower += 1;
+                    towerParts += 1;
                     break;
                 default:
                     break;
@@ -87,13 +87,20 @@ public class ItemTestPlayer : MonoBehaviour
 
         }
     }
-    public void OnBuild(InputValue value)
+    public void OnBuildTower(InputValue value)
     {
         if (value.isPressed)
         {
-            if (tower >= 1)
+            if (towerParts >= 5)
             {
-                ItemSpawner.Instance.MakeDropItem(towerData, gameObject.transform.position);
+                Debug.Log($"타워 부품 5개를 소비하여 타워를 소환함. 남은 부품 : {towerParts}");
+                towerParts -= 5;
+                
+                ItemSpawner.Instance.MakeTower(towerData, gameObject.transform.position,3);
+            }
+            else
+            {
+                Debug.Log($"타워 부품이 5개 필요합니다. 현재 부품 : {towerParts}");
             }
         }
     }

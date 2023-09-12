@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class InteractCollider : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject TowerGameObject;
+    public Tower tower;
+
+    public void Start()
     {
-        
+        tower = TowerGameObject.GetComponent<Tower>();
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            tower.PlayerEntered = true;
+            tower.GageBar.SetActive(true);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit2D(Collider2D other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            tower.PlayerEntered = false;
+            tower.GageBar.SetActive(false);
+        }
     }
 }

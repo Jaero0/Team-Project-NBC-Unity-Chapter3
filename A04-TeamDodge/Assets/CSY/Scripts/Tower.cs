@@ -47,6 +47,8 @@ public class Tower : MonoBehaviour
                         BuildOver = true;
                         WeaponTower.SetActive(true);
                         GageBar.SetActive(false);
+                        IsInteractable = false;
+                        gameObject.tag = "Tower";
                     }
                 }
             }
@@ -77,8 +79,8 @@ public class Tower : MonoBehaviour
 
     public void SetDroppedStatus()
     {
-        MagneticCollider.gameObject.SetActive(false);
-        InteractCollider.gameObject.SetActive(true);
+        MagneticCollider.SetActive(false);
+        InteractCollider.SetActive(true);
         IsInteractable = true;
     }
 }

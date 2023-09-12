@@ -13,10 +13,14 @@ public class InteractCollider : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (tower.BuildOver == false)
         {
-            tower.PlayerEntered = true;
-            tower.GageBar.SetActive(true);
+            if (other.CompareTag("Player"))
+            {
+
+                tower.PlayerEntered = true;
+                tower.GageBar.SetActive(true);
+            }
         }
     }
 

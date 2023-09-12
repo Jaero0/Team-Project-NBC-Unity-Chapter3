@@ -8,10 +8,12 @@ public class CharacterAim : MonoBehaviour
     [SerializeField] private SpriteRenderer playerSprite;
     [SerializeField] private SpriteRenderer[] weaponSprite;
     [SerializeField] private Transform[] weaponPivot;
-    [SerializeField] private Transform weaponOrigin;
+    [SerializeField] public Transform weaponOrigin;
     public float shootingSpeed;
     public float shootInterval;
     private float shootCool = 0;
+    private int weaponNumber = 1;
+    private int weaponNumberMax = 4;
     float angle = 0;
     Vector2 direction = Vector2.zero;
     Vector2 shootDirection = Vector2.zero;
@@ -19,6 +21,7 @@ public class CharacterAim : MonoBehaviour
     private void Awake()
     {
         _controller = GetComponent<CharacterEventController>();
+        SetWeaponToWeaponNumber();
     }
     void Start()
     {
@@ -64,4 +67,29 @@ public class CharacterAim : MonoBehaviour
         shootDirection = Vector2.zero;
     }
 
+    public void AddWeaponNumber()
+    {
+        if (weaponNumber < 4)
+        {
+            weaponNumber++;
+            SetWeaponToWeaponNumber();
+            Debug.Log($"근접 무기 숫자가 늘었습니다.");
+        }
+        if (weaponNumber ==4)
+        {
+            Debug.Log($"이미 최대 무기 숫자 입니다.");
+        }
+    }
+
+    public void SetWeaponToWeaponNumber()
+    {
+        for(int i = 0; i < weaponNumberMax; i++) 
+        {
+            weaponPivot[i].gameObject.SetActive(false);
+        }
+        for(int i = 0; i < weaponNumber; i++) 
+        {
+            weaponPivot[i].gameObject.SetActive(true);
+        }
+    }
 }

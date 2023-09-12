@@ -34,12 +34,12 @@
                 },
                 {
                     "name": "BuildTower",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "58e40ee3-399d-477e-ba72-8651905486d7",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [

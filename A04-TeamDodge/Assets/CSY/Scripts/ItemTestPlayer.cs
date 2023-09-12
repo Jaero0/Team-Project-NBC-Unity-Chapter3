@@ -96,7 +96,7 @@ public class ItemTestPlayer : MonoBehaviour
                 Debug.Log($"타워 부품 5개를 소비하여 타워를 소환함. 남은 부품 : {towerParts}");
                 towerParts -= 5;
                 
-                ItemSpawner.Instance.MakeTower(towerData, gameObject.transform.position,3);
+                ItemSpawner.Instance.MakeTower(gameObject.transform.position,3);
             }
             else
             {

@@ -7,8 +7,11 @@ public class ItemTestPlayer : MonoBehaviour
 {
     [SerializeField]
     private string description;
+    public ItemData towerData;
     private Vector2 direction = Vector2.zero;
     private float moveSpeed = 2f;
+
+    private int towerParts = 0;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Item"))
@@ -63,7 +66,10 @@ public class ItemTestPlayer : MonoBehaviour
                     Debug.Log("근접무기의 갯수가 증가했다.");
 
                     break;
-
+                case ITEMTYPE.TOWER:
+                    Debug.Log("타워를 얻었습니다.");
+                    towerParts += 1;
+                    break;
                 default:
                     break;
             }
@@ -81,11 +87,21 @@ public class ItemTestPlayer : MonoBehaviour
 
         }
     }
-    public void OnBuild(InputValue value)
+    public void OnBuildTower(InputValue value)
     {
         if (value.isPressed)
         {
-
+            if (towerParts >= 5)
+            {
+                Debug.Log($"타워 부품 5개를 소비하여 타워를 소환함. 남은 부품 : {towerParts}");
+                towerParts -= 5;
+                
+                ItemSpawner.Instance.MakeTower(gameObject.transform.position,3);
+            }
+            else
+            {
+                Debug.Log($"타워 부품이 5개 필요합니다. 현재 부품 : {towerParts}");
+            }
         }
     }
     public void OnMove(InputValue value)

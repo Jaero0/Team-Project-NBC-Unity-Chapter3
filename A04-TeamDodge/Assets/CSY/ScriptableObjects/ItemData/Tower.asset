@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2c23296b88a21c4b86ffe16ed3e4e57, type: 3}
-  m_Name: Score1000
+  m_Name: Tower
   m_EditorClassIdentifier: 
-  ItemType: 2
-  ItemName: Score1000
-  ItemDescription: "\uD070 \uC810\uC218\uB97C \uC8FC\uB294 \uACE8\uB4DC \uB3D9\uC804"
+  ItemType: 1
+  ItemName: Tower
+  ItemDescription: "\uD68D\uB4DD\uC2DC b\uD0A4\uB97C \uB20C\uB7EC\uC11C \uBC14\uB2E5\uC5D0
+    \uC124\uCE58 \uAC00\uB2A5\n\uBC14\uB2E5 \uC124\uCE58\uD6C4 \uADFC\uCC98\uC5D0\uC11C
+    5\uCD08 \uB300\uAE30\uD558\uBA74 \uD0C0\uC6CC\uAC74\uC124\uC644\uB8CC"
   Heal: 0
-  Score: 1000
+  Score: 0

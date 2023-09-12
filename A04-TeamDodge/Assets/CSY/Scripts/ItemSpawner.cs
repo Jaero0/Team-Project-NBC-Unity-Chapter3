@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -29,8 +30,11 @@ public class ItemSpawner : MonoBehaviour
             return instance;
         }
     }
-    public Dictionary<ItemData, int> PrefabIndex = new(); 
-
+    public Dictionary<ItemData, int> PrefabIndex = new();
+    public ItemData[] Potions;
+    public ItemData[] Upgrades;
+    public ItemData[] Scores;
+    public ItemData TowerData;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -64,6 +68,49 @@ public class ItemSpawner : MonoBehaviour
         float y = Random.Range(-1f,1f);
         Vector3 newVector = new Vector3(x,y,0f).normalized * randomDistance + new Vector3(character.x + x, character.y + y, 0);
         Instantiate(itemSpawnData.ItemPrefabs[PrefabIndex[itemData]],newVector,Quaternion.identity);
+    }
+
+    public void MakeRandomDropItem(Vector3 monster)
+    {
+        int random = Random.Range(0, 1000);
+        if (random <= 50)
+        {
+            MakeDropItem(Potions[random%Potions.Length], monster);
+        }
+        else if( random <= 100 )
+        {
+            MakeDropItem(Upgrades[random%Upgrades.Length], monster);
+        }
+        else
+        {
+            MakeDropItem(Scores[random % Scores.Length], monster);
+        }
+    }
+    public void MakeRandomItem(Vector3 character, int randomDistance) 
+    {
+        int random = Random.Range(0, 1000);
+        if (random <= 50)
+        {
+            MakeItem(Potions[random % Potions.Length], character, randomDistance);
+        }
+        else if (random <= 100)
+        {
+            MakeItem(Upgrades[random % Upgrades.Length], character, randomDistance);
+        }
+        else
+        {
+            MakeItem(Scores[random % Scores.Length], character, randomDistance);
+        }
+    }
+    public void MakeTower(Vector3 character, int randomDistance)
+    {
+        Debug.Log("아이템스포너가 타워생성 호출당함");
+        float x = Random.Range(-1f, 1f);
+        float y = Random.Range(-1f, 1f);
+        Vector3 newVector = new Vector3(x, y, 0f).normalized * randomDistance + new Vector3(character.x + x, character.y + y, 0);
+        var tower = Instantiate(itemSpawnData.ItemPrefabs[PrefabIndex[TowerData]], newVector, Quaternion.identity);
+        Debug.Log("타워의 SetDroppedStatus 함수를 호출함");
+        tower.GetComponent<Tower>().SetDroppedStatus();
     }
 }
 

@@ -15,5 +15,5 @@ MonoBehaviour:
   ItemType: 0
   ItemName: Potion
   ItemDescription: "\uCCB4\uB825 \uD68C\uBCF5\uC744 \uD574\uC90D\uB2C8\uB2E4."
-  Heal: 30
+  Heal: 3
   Score: 10

@@ -20,7 +20,7 @@ public class CharacterUpgrade : MonoBehaviour
     {
         if (collision.CompareTag("Item"))
         {
-            Debug.Log(collision.GetComponent<Item>()?.ItemType);
+            //Debug.Log(collision.GetComponent<Item>()?.ItemType);
         }
         
     }

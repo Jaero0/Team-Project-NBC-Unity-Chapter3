@@ -6,7 +6,6 @@ using UnityEngine;
 
 
 public class SoundManager : StartMeunManager
-
 {
     public AudioSource musicSource;
     public AudioSource btnSounrce_go;

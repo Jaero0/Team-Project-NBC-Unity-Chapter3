@@ -7,8 +7,11 @@ public class Tower : MonoBehaviour
 {
     // false는 그냥 아이템상태, true는 설치준비상태 (플레이어가 바닥에 drop한 상태)
     public bool IsInteractable = false;
+    public bool PlayerEntered = false;
     public bool BuildOver = false;
 
+    public GameObject MagneticCollider;
+    public GameObject InteractCollider;
     public GameObject WeaponTower;
     public GameObject GageBar;
     public GameObject BulletPrefab;
@@ -32,16 +35,19 @@ public class Tower : MonoBehaviour
     {
         if (BuildOver == false)
         {
-            if(IsInteractable == true)
+            if (IsInteractable == true)
             {
-                currentTime += Time.deltaTime;
-                var percent = currentTime / BuildTime;
-                bluegage.size = new Vector2(percent, 0.1f);
-                if ( percent >= 1f)
+                if (PlayerEntered == true)
                 {
-                    BuildOver = true;
-                    WeaponTower.SetActive (true);
-                    GageBar.SetActive (false);
+                    currentTime += Time.deltaTime;
+                    var percent = currentTime / BuildTime;
+                    bluegage.size = new Vector2(percent, 0.1f);
+                    if (percent >= 1f)
+                    {
+                        BuildOver = true;
+                        WeaponTower.SetActive(true);
+                        GageBar.SetActive(false);
+                    }
                 }
             }
         }
@@ -67,5 +73,12 @@ public class Tower : MonoBehaviour
             var temp = Instantiate(BulletPrefab, ArrowTips[i].position, ArrowTips[i].rotation);
             Destroy(temp, 5f);
         }
+    }
+
+    public void SetDroppedStatus()
+    {
+        MagneticCollider.gameObject.SetActive(false);
+        InteractCollider.gameObject.SetActive(true);
+        IsInteractable = true;
     }
 }

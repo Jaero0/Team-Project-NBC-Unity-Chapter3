@@ -279,7 +279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1445507003089326374
 Transform:
   m_ObjectHideFlags: 0
@@ -402,7 +402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &282817619155069120
 Transform:
   m_ObjectHideFlags: 0
@@ -882,6 +882,8 @@ GameObject:
   - component: {fileID: 8695154116573351091}
   - component: {fileID: 4750922349935134265}
   - component: {fileID: 522983610187769729}
+  - component: {fileID: 447458522489172242}
+  - component: {fileID: 3197731833859160672}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -907,7 +909,7 @@ Transform:
   - {fileID: 6979957962265952659}
   - {fileID: 282817619155069120}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4750922349935134265
 MonoBehaviour:
@@ -922,7 +924,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteractable: 0
+  PlayerEntered: 0
   BuildOver: 0
+  MagneticCollider: {fileID: 0}
+  InteractCollider: {fileID: 0}
   WeaponTower: {fileID: 3190028392941461436}
   GageBar: {fileID: 4563428874432746794}
   BulletPrefab: {fileID: 8920712846653067198, guid: 2c3f006dd1654bd4f8e0c8ed12407488, type: 3}
@@ -946,6 +951,68 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: bb072d1efbd0d9e45bd0cbcbddec242d, type: 2}
+--- !u!50 &447458522489172242
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5888259506820261100}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &3197731833859160672
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5888259506820261100}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!1 &6379710013418563441
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,13 +1054,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3225023720246772797}
   - component: {fileID: 6354763632719754097}
+  - component: {fileID: 4346253842117493186}
   m_Layer: 0
   m_Name: InteractCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3225023720246772797
 Transform:
   m_ObjectHideFlags: 0
@@ -1044,6 +1112,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.5
+--- !u!114 &4346253842117493186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6754981704211189922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a804dcd548fa71a4295675e8b09843de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7790181664345122904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,7 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24eb410585770ee4195224ce55a72aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RootGameObject: {fileID: 0}
+  RootGameObject: {fileID: 5888259506820261100}
   rigid: {fileID: 0}
   isPlayerEntered: 0
   target: {fileID: 0}

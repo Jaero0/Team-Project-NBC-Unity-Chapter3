@@ -21,7 +21,7 @@ public class CharacterAim : MonoBehaviour
     private void Awake()
     {
         _controller = GetComponent<CharacterEventController>();
-        SetWeaponToWeaponNumber();
+
     }
     void Start()
     {
@@ -46,7 +46,8 @@ public class CharacterAim : MonoBehaviour
         {
             weaponSprite[i].flipX = (Mathf.Abs(angle) > 90f) ? true : false;
             playerSprite.flipX = weaponSprite[i].flipX;
-            weaponPivot[i].rotation = Quaternion.Euler(0, 0, angle);
+            if (weaponOrigin.position == transform.position)
+                weaponPivot[i].rotation = Quaternion.Euler(0, 0, angle);
         }
         
     }

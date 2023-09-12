@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_targetTag: Monster
   m_damage: 1
+  m_isAutoDestroy: 0
 --- !u!114 &3992121021273597968
 MonoBehaviour:
   m_ObjectHideFlags: 0

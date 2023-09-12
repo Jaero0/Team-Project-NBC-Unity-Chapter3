@@ -48,6 +48,9 @@ public class CharacterUpgrade : MonoBehaviour
                     Debug.Log("발사체의 크기가 증가했다.");
                     var newScale = GetComponent<CharacterAim>().weaponOrigin.localScale * 1.1f;
                     GetComponent<CharacterAim>().weaponOrigin.localScale = newScale;
+
+                    var newScale2 = GetComponent<CharacterSkill>().skillTransform.localScale * 1.1f;
+                    GetComponent<CharacterSkill>().skillTransform.localScale = newScale;
                     break;
 
                 case ITEMTYPE.BULLET_NUMBER_UP:

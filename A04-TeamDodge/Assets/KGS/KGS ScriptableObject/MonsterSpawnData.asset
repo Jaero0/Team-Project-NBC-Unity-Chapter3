@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 332754983943082225, guid: 9448bfd4ffcbd1b4fbac56754bb85f7d, type: 3}
   - {fileID: 332754983943082225, guid: 231a2a48f469c3849a4d603797cf5a61, type: 3}
   - {fileID: 332754983943082225, guid: 148202d392acf71488b3bc921509a9e6, type: 3}
-  monsterSpawnTime: 2
+  monsterSpawnTime: 0.5
   monsterSpawnDistance: 10
   bulletPrefabArray:
   - {fileID: 1637239397453452236, guid: ce28332ba2565294f9b39959b2c45cee, type: 3}

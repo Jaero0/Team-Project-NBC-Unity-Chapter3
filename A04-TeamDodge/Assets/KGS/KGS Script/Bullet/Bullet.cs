@@ -22,7 +22,10 @@ public class Bullet : MonoBehaviour
             if (bulletEvent != null)
             {
                 bulletEvent.TakeDamage(m_damage);
-                Destroy(gameObject);
+                if (m_isAutoDestroy)
+                {
+                    Destroy(gameObject);
+                }
             }
 
         }
@@ -32,5 +35,6 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] private string m_targetTag;
     [SerializeField] private float  m_damage;
+    [SerializeField] private bool   m_isAutoDestroy;
 
 }

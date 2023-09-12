@@ -9,8 +9,8 @@ public class CharacterAim : MonoBehaviour
     [SerializeField] private SpriteRenderer[] weaponSprite;
     [SerializeField] private Transform[] weaponPivot;
     [SerializeField] private Transform weaponOrigin;
-    [SerializeField] private float shootingSpeed;
-    [SerializeField] private float shootInterval;
+    public float shootingSpeed;
+    public float shootInterval;
     private float shootCool = 0;
     float angle = 0;
     Vector2 direction = Vector2.zero;

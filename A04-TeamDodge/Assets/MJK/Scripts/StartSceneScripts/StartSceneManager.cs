@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class StartMeunManager : MonoBehaviour
 {
     public GameObject OPtionUI;
-    private bool isOptionOpen = false;
 
 
     public void OnButtonClick() //StartBtn

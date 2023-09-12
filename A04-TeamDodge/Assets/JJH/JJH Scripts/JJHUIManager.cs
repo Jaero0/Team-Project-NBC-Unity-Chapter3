@@ -134,6 +134,7 @@ public class JJHUIManager : MonoBehaviour
     public void OnClickInvokeMenuCloseBtn()
     {
         Time.timeScale = 1;
+        
         menuAnim.SetBool("isOpenning", false);
         menuOpenBtn.SetActive(true);
         menuCloseBtn.SetActive(false);
@@ -246,6 +247,7 @@ public class JJHUIManager : MonoBehaviour
     #region BackToMainMenuMethods
     public void OnClickBackToMainMenuBtn()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("StartScene");
     }
     #endregion

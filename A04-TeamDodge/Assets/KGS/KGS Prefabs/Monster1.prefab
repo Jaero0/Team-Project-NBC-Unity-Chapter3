@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae3c4146c2c7f24ebf9ecff514c5a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_identifier: 1
   m_spriteRenderer: {fileID: 2957865225430049298}
   m_animator: {fileID: 0}
   m_flipSpriteX: 1

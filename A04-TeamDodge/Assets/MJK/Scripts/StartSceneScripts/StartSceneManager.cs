@@ -10,29 +10,8 @@ public class StartMeunManager : MonoBehaviour
     public GameObject OPtionUI;
     private bool isOptionOpen = false;
 
-    
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (isOptionOpen)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                CloseOptions();
-            }
-        }
-    }
 
     public void OnButtonClick() //StartBtn
-    {
-        Invoke("LoadSceneAfterDelay", 0.1f);
-    }
-    private void LoadSceneAfterDelay()
     {
         SceneManager.LoadScene(1);
     }
@@ -57,13 +36,11 @@ public class StartMeunManager : MonoBehaviour
     public void OpenOptions()
     {
         OPtionUI.SetActive(true); // 옵션 UI를 활성화
-        isOptionOpen = true; // 옵션 창 열림
     }
 
     // 옵션 창을 닫을 때 호출되는 함수
     public void CloseOptions()
     {
         OPtionUI.SetActive(false);
-        isOptionOpen = false; // 옵션 창 닫힘 
     }
 }

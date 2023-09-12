@@ -6,7 +6,7 @@ public class CharacterMovement : MonoBehaviour
 {
     private CharacterEventController _controller;
     private Vector2 direction = Vector2.zero;
-    [SerializeField] private float moveSpeed;
+    public float moveSpeed;
 
     [SerializeField] Animator animator;
     private void Awake()

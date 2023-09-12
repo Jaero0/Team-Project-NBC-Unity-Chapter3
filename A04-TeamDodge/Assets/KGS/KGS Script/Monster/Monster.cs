@@ -22,11 +22,19 @@ public class Monster : MonoBehaviour, IBulletEvent
     /// <param name="damage"></param>
     public void TakeDamage(float damage)
     {
+
         m_status.hp -= (int)damage;
         if(m_status.hp <= 0)
         {
+
             MonsterManager.Instance.CallMonsterDieEvent(m_identifier, transform.position);
+            //m_animator.SetBool("Dead", true);
             Destroy(gameObject);
+
+        }
+        else
+        {
+            //m_animator.SetBool("Hit", true);
         }
     }
 

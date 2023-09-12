@@ -7,8 +7,11 @@ public class ItemTestPlayer : MonoBehaviour
 {
     [SerializeField]
     private string description;
+    public ItemData towerData;
     private Vector2 direction = Vector2.zero;
     private float moveSpeed = 2f;
+
+    private int tower = 0;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Item"))
@@ -63,7 +66,10 @@ public class ItemTestPlayer : MonoBehaviour
                     Debug.Log("근접무기의 갯수가 증가했다.");
 
                     break;
-
+                case ITEMTYPE.TOWER:
+                    Debug.Log("타워를 얻었습니다.");
+                    tower += 1;
+                    break;
                 default:
                     break;
             }
@@ -85,7 +91,10 @@ public class ItemTestPlayer : MonoBehaviour
     {
         if (value.isPressed)
         {
-
+            if (tower >= 1)
+            {
+                ItemSpawner.Instance.MakeDropItem(towerData, gameObject.transform.position);
+            }
         }
     }
     public void OnMove(InputValue value)

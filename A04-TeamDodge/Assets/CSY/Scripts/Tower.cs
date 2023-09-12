@@ -10,6 +10,7 @@ public class Tower : MonoBehaviour
     public bool BuildOver = false;
 
     public GameObject WeaponTower;
+    public GameObject GageBar;
     public GameObject BulletPrefab;
     public Transform[] ArrowTips;
     // public Sprite[] Weapons;
@@ -22,6 +23,11 @@ public class Tower : MonoBehaviour
     private float lastFireTime = 0f;
 
 
+    private void Start()
+    {
+        WeaponTower.SetActive(false);
+        GageBar.SetActive(false);
+    }
     private void Update()
     {
         if (BuildOver == false)
@@ -34,6 +40,8 @@ public class Tower : MonoBehaviour
                 if ( percent >= 1f)
                 {
                     BuildOver = true;
+                    WeaponTower.SetActive (true);
+                    GageBar.SetActive (false);
                 }
             }
         }

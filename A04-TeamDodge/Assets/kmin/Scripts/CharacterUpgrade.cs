@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class CharacterUpgrade : MonoBehaviour
 {
+    private int moveUpgrade = 0;
+    private int sizeUpgrade = 0;
+    private int shootingUpgrade = 0;
     private int towerParts = 0;
     // Start is called before the first frame update
     void Start()
     {
-
+        moveUpgrade = 0;
+        sizeUpgrade = 0;
+        shootingUpgrade = 0;
+        towerParts = 0;
     }
 
     // Update is called once per frame
@@ -44,13 +50,22 @@ public class CharacterUpgrade : MonoBehaviour
                     break;
 
                 case ITEMTYPE.BULLET_SIZE_UP:
-
-                    Debug.Log("발사체의 크기가 증가했다.");
-                    var newScale = GetComponent<CharacterAim>().weaponOrigin.localScale * 1.1f;
+                    if( sizeUpgrade < 10)
+                    {
+                        sizeUpgrade++;
+                        Debug.Log("발사체의 크기가 증가했다.");
+                    }
+                    else
+                    {
+                        Debug.Log("발사체의 크기가 최대치입니다.");
+                        break;
+                    }
+                    float sizeFactor = (1f + sizeUpgrade * 0.1f) / (0.9f + sizeUpgrade * 0.1f);
+                    var newScale = GetComponent<CharacterAim>().weaponOrigin.localScale * sizeFactor;
                     GetComponent<CharacterAim>().weaponOrigin.localScale = newScale;
 
-                    var newScale2 = GetComponent<CharacterSkill>().skillTransform.localScale * 1.1f;
-                    GetComponent<CharacterSkill>().skillTransform.localScale = newScale;
+                    var newScale2 = GetComponent<CharacterSkill>().skillTransform.localScale * sizeFactor;
+                    GetComponent<CharacterSkill>().skillTransform.localScale = newScale2;
                     break;
 
                 case ITEMTYPE.BULLET_NUMBER_UP:
@@ -58,13 +73,33 @@ public class CharacterUpgrade : MonoBehaviour
                     break;
 
                 case ITEMTYPE.MOVE_SPEED_UP:
-                    Debug.Log("이동속도가 10% 증가했다.");
-                    GetComponent<CharacterMovement>().moveSpeed *= 1.1f;
+                    if (moveUpgrade < 10)
+                    {
+                        moveUpgrade++;
+                        Debug.Log("이동속도가 증가했다.");
+                    }
+                    else
+                    {
+                        Debug.Log("이동속도가 최대치입니다.");
+                        break;
+                    }
+                    float speedFactor = (1f + moveUpgrade * 0.1f) / (0.9f + moveUpgrade * 0.1f);
+                    GetComponent<CharacterMovement>().moveSpeed *= speedFactor;
                     break;
 
                 case ITEMTYPE.SHOOTING_SPEED_UP:
-                    Debug.Log("공격속도가 증가했다.");
-                    GetComponent<CharacterAim>().shootInterval *= 0.9f;
+                    if (shootingUpgrade < 10)
+                    {
+                        shootingUpgrade++;
+                        Debug.Log("발사 대기시간이 감소했다.");
+                    }
+                    else
+                    {
+                        Debug.Log("연사속도 최대치입니다.");
+                        break;
+                    }
+                    float fireFactor = (1f - shootingUpgrade * 0.05f) / (1.05f - shootingUpgrade * 0.05f);
+                    GetComponent<CharacterAim>().shootInterval *= fireFactor;
                     break;
 
                 case ITEMTYPE.WEAPON_NUMBER_UP:

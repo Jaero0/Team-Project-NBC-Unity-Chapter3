@@ -29,3 +29,5 @@ MonoBehaviour:
     - {fileID: 11400000, guid: bb072d1efbd0d9e45bd0cbcbddec242d, type: 2}
     - {fileID: 11400000, guid: 831ba06f3eda0844d89e5dbd87eda3a2, type: 2}
     hp: 5
+  - itemDropArray: []
+    hp: 50

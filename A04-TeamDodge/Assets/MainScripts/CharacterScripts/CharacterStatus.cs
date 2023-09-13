@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class CharacterStatus : CharacterEventController
 {
-    private int hp;
+    [SerializeField] private int hp;
     [SerializeField] private int maxHp;
     [SerializeField] private Image hpBar;
 
     private void Start()
     {
         hp = maxHp;
+        Invoke("CallDeathEvent", 2f);
     }
     public void TakeDamage(int damage)
     {

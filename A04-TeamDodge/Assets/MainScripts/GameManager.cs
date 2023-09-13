@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     void TurnOnGameOver()
     {
-        Debug.Log("asd");
+        Time.timeScale = 0;
         gameOverImg.SetActive(true);
     }
 }

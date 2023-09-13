@@ -9,21 +9,6 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;
     public AudioClip[] bglist;
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            audioSource = GetComponent<AudioSource>();
-            instance = this;
-            DontDestroyOnLoad(instance);
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         for (int i = 0; i < bglist.Length; i++)

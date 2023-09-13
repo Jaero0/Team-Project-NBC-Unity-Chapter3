@@ -44,6 +44,7 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 1;
         uiManagerAudioSource = GetComponent<AudioSource>();
         cursorManagerAudioSource = GameObject.Find("CursorManager").GetComponent<AudioSource>();
 
@@ -252,7 +253,7 @@ public class UIManager : MonoBehaviour
     #region BackToMainMenuMethods
     public void OnClickBackToMainMenuBtn()
     {
-        Time.timeScale = 1;
+        
         SceneManager.LoadScene("StartScene");
     }
     #endregion

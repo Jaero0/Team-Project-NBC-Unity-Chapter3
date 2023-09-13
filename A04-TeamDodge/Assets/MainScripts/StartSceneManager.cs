@@ -26,18 +26,14 @@ public class StartMeunManager : MonoBehaviour
 
     public void OnButtonClick() //StartBtn
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("LevelScene");
 
     }
 
 
     public void GameBackClick()//BackBtn
     {
-        Invoke("gameBackBtn", 0.1f);
-    }
-    public void gameBackBtn()
-    {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("StartScene");
     }
 
 

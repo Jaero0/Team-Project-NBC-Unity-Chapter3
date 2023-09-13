@@ -7,14 +7,12 @@ public class CharacterUpgrade : MonoBehaviour
     private int moveUpgrade = 0;
     private int sizeUpgrade = 0;
     private int shootingUpgrade = 0;
-    private int towerParts = 0;
     // Start is called before the first frame update
     void Start()
     {
         moveUpgrade = 0;
         sizeUpgrade = 0;
         shootingUpgrade = 0;
-        towerParts = 0;
     }
 
     // Update is called once per frame

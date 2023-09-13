@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c23296b88a21c4b86ffe16ed3e4e57, type: 3}
+  m_Name: BulletSizeUp
+  m_EditorClassIdentifier: 
+  ItemType: 5
+  ItemName: BulletSizeUp
+  ItemDescription: "\uD22C\uC0AC\uCCB4 \uD06C\uAE30\uB97C \uB298\uB824\uC8FC\uB294
+    \uC544\uC774\uD15C"
+  Heal: 0
+  Score: 6

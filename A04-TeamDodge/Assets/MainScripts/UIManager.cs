@@ -44,6 +44,7 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 1;
         uiManagerAudioSource = GetComponent<AudioSource>();
         cursorManagerAudioSource = GameObject.Find("CursorManager").GetComponent<AudioSource>();
 
@@ -109,11 +110,16 @@ public class UIManager : MonoBehaviour
 
     private void EndTime()
     {
+        
         leftTime = 0f;
         hourGlassAnim.SetBool("isStopped", true);
         uiManagerAudioSource.pitch = 0.9f;
         leftTimeTxt.color = Color.red;
         leftTimeTxt.text = $"보스 등장!";
+
+        //보스를 등장시킵니다.
+        MonsterManager.Instance.CreateBoss();
+
     }
     #endregion
 
@@ -247,7 +253,7 @@ public class UIManager : MonoBehaviour
     #region BackToMainMenuMethods
     public void OnClickBackToMainMenuBtn()
     {
-        Time.timeScale = 1;
+        
         SceneManager.LoadScene("StartScene");
     }
     #endregion

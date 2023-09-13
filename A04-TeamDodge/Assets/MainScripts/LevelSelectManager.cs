@@ -7,6 +7,7 @@ public class LevelSelectManager : MonoBehaviour
 {
     public void OnClickLevelSelection_1()
     {
+
         SceneManager.LoadScene("Lv1Scene");
     }
 

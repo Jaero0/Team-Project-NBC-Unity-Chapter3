@@ -192,9 +192,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1836812450386627478, guid: d5a7ae961710847adaf2773a51ce0a7e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 961123466}
+    - target: {fileID: 1836812450386627478, guid: d5a7ae961710847adaf2773a51ce0a7e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickLevelSelection_3
+      objectReference: {fileID: 0}
     - target: {fileID: 2930816063588794058, guid: d5a7ae961710847adaf2773a51ce0a7e, type: 3}
       propertyPath: m_Name
       value: LevelCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905507417180185186, guid: d5a7ae961710847adaf2773a51ce0a7e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 961123466}
+    - target: {fileID: 6905507417180185186, guid: d5a7ae961710847adaf2773a51ce0a7e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickLevelSelection_2
       objectReference: {fileID: 0}
     - target: {fileID: 7061648658585023454, guid: d5a7ae961710847adaf2773a51ce0a7e, type: 3}
       propertyPath: m_Pivot.x
@@ -287,6 +303,14 @@ PrefabInstance:
     - target: {fileID: 8617881274800322141, guid: d5a7ae961710847adaf2773a51ce0a7e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660384263642632602, guid: d5a7ae961710847adaf2773a51ce0a7e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 961123466}
+    - target: {fileID: 8660384263642632602, guid: d5a7ae961710847adaf2773a51ce0a7e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickLevelSelection_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -481,6 +505,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 673c8519e333e4eb9b513277b7a9eb7a, type: 3}
+--- !u!114 &961123466 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1078994670657296652, guid: 673c8519e333e4eb9b513277b7a9eb7a, type: 3}
+  m_PrefabInstance: {fileID: 961123465}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a36bb3209ba6e4f883521f766114a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2055121526
 PrefabInstance:
   m_ObjectHideFlags: 0

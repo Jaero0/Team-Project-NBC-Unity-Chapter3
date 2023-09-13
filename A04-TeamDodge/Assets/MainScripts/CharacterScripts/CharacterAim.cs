@@ -56,6 +56,10 @@ public class CharacterAim : MonoBehaviour
         {
             weaponSprite[i].flipX = (Mathf.Abs(angle) > 90f) ? true : false;
             playerSprite.flipX = weaponSprite[i].flipX;
+            if(PlayerPrefs.GetInt("PlayerAvater")==2&& (Mathf.Abs(angle) > 90f))
+            {
+                weaponSprite[i].flipX = !weaponSprite[i].flipX;
+            }
             if (Mathf.Abs(weaponOrigin.position.x - transform.position.x)<0.5f&& Mathf.Abs(weaponOrigin.position.y - transform.position.y) < 0.5f)
                 weaponPivot[i].rotation = Quaternion.Euler(0, 0, angle);
         }

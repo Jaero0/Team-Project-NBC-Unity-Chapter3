@@ -12,7 +12,6 @@ public class CharacterStatus : CharacterEventController, IBulletEvent
     private void Start()
     {
         hp = maxHp;
-        Invoke("CallDeathEvent", 2f);
     }
     public void TakeDamage(int damage)
     {

@@ -15,6 +15,7 @@ public class CharacterAim : MonoBehaviour
     private float shootCool = 0;
     private int weaponNumber = 1;
     private int weaponNumberMax = 4;
+    private int playerChoice = 0;
     float angle = 0;
     Vector2 direction = Vector2.zero;
     Vector2 shootDirection = Vector2.zero;
@@ -22,10 +23,12 @@ public class CharacterAim : MonoBehaviour
     private void Awake()
     {
         _controller = GetComponent<CharacterEventController>();
+        playerChoice = PlayerPrefs.GetInt("PlayerAvater");
 
     }
     void Start()
     {
+        Debug.Log(playerChoice);
         _controller.OnLookEvent += Look;
         _controller.OnShootEvent += Shoot;
         weaponParent.DetachChildren();
@@ -53,7 +56,7 @@ public class CharacterAim : MonoBehaviour
         {
             weaponSprite[i].flipX = (Mathf.Abs(angle) > 90f) ? true : false;
             playerSprite.flipX = weaponSprite[i].flipX;
-            if (weaponOrigin.position == transform.position)
+            if (Mathf.Abs(weaponOrigin.position.x - transform.position.x)<0.5f&& Mathf.Abs(weaponOrigin.position.y - transform.position.y) < 0.5f)
                 weaponPivot[i].rotation = Quaternion.Euler(0, 0, angle);
         }
         
@@ -65,6 +68,10 @@ public class CharacterAim : MonoBehaviour
         {
             shootDirection = direction;
             Invoke("ResetPosition", shootInterval);
+            foreach (var weapon in weaponPivot)
+            {
+                weapon.GetComponent<BoxCollider2D>().enabled = true;
+            }
             shootCool = 0;
         }
     }
@@ -72,6 +79,10 @@ public class CharacterAim : MonoBehaviour
     private void ResetPosition()
     {
         weaponOrigin.position = transform.position;
+        foreach(var weapon in weaponPivot)
+        {
+            weapon.GetComponent<BoxCollider2D>().enabled = false;
+        }
         shootDirection = Vector2.zero;
     }
 
@@ -80,7 +91,7 @@ public class CharacterAim : MonoBehaviour
         if (weaponNumber < 4)
         {
             weaponNumber++;
-            SetWeaponToWeaponNumber();
+            SetWeaponToWeaponNumber(playerChoice);
             Debug.Log($"근접 무기 숫자가 늘었습니다.");
         }
         if (weaponNumber ==4)
@@ -89,15 +100,16 @@ public class CharacterAim : MonoBehaviour
         }
     }
 
-    public void SetWeaponToWeaponNumber()
+    public void SetWeaponToWeaponNumber(int playerChoice)
     {
-        for(int i = 0; i < weaponNumberMax; i++) 
+        for (int i = 0; i < weaponNumberMax; i++)
         {
             weaponPivot[i].gameObject.SetActive(false);
         }
-        for(int i = 0; i < weaponNumber; i++) 
+        for (int i = 0; i < weaponNumber; i++)
         {
             weaponPivot[i].gameObject.SetActive(true);
+            weaponPivot[i].GetChild(0).GetComponent<Animator>().SetInteger("avatar", playerChoice);
         }
     }
 }

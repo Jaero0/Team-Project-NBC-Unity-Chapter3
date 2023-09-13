@@ -6,8 +6,9 @@ public class CharacterAnimationController : MonoBehaviour
 {
     [SerializeField] private Animator characterAnimator;
     [SerializeField] private Animator skillAnimator;
-    [SerializeField] private Animator[] weaponAnimators;
+    [SerializeField] public Animator[] weaponAnimators;
     [SerializeField] private GameObject skill;
+    [SerializeField] private GameObject[] weapons;
     private int playerChoice;
 
     private enum AVATARS
@@ -19,14 +20,12 @@ public class CharacterAnimationController : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.SetInt("PlayerAvatar",2);
-        playerChoice = PlayerPrefs.GetInt("PlayerAvatar");
+        playerChoice = PlayerPrefs.GetInt("PlayerAvater");
     }
 
     private void Start()
     {
-        ChangeCharacter(playerChoice);
-        GetComponent<CharacterAim>().SetWeaponToWeaponNumber();
+        ChangeCharacter(playerChoice);  
         Invoke("DeactivateSkill", 0.2f);
     }
 
@@ -64,5 +63,9 @@ public class CharacterAnimationController : MonoBehaviour
     private void DeactivateSkill()
     {
         skill.SetActive(false);
+        for (int i = 1; i<weapons.Length; i++)
+        {
+            weapons[i].SetActive(false);
+        }
     }
 }

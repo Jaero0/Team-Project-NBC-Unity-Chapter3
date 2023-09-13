@@ -10,8 +10,14 @@ public class CharacterEventController : MonoBehaviour
     public event Action OnDeathEvent;
     public event Action OnShootEvent;
     public float skillTime = 2.0f;
+    public static CharacterEventController instance = null;
 
     [SerializeField] private GameObject skill;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     public void CallMoveEvent(Vector2 direction)
     {
         OnMoveEvent?.Invoke(direction);

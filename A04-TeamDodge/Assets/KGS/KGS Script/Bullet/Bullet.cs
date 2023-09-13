@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
 
     public string TargetTag { set => m_targetTag = value; get => m_targetTag; }
 
-    public float Damage { set => m_damage = value; get => m_damage; }
+    public int Damage { set => m_damage = value; get => m_damage; }
 
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
 
 
     [SerializeField] private string m_targetTag;
-    [SerializeField] private float  m_damage;
+    [SerializeField] private int    m_damage;
     [SerializeField] private bool   m_isAutoDestroy;
 
 }

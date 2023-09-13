@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletEvent : MonoBehaviour, IBulletEvent
 {
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
     }
 }

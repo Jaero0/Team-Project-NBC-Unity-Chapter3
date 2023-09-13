@@ -20,10 +20,10 @@ public class Monster : MonoBehaviour, IBulletEvent
     /// IBulletEvent 구현
     /// </summary>
     /// <param name="damage"></param>
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
 
-        m_status.hp -= (int)damage;
+        m_status.hp -= damage;
         if(m_status.hp <= 0)
         {
 
@@ -56,7 +56,6 @@ public class Monster : MonoBehaviour, IBulletEvent
     {
 
         //테이블에서 데이터를 가져옵니다.
-        Debug.Log($"Identifier: {m_identifier}");
         m_status.hp = MonsterManager.Instance.MonsterTable[m_identifier].hp;
 
         m_movement.Direction  = Vector3.Normalize(MonsterManager.Instance.TargetGameObject.transform.position - transform.position);
@@ -79,8 +78,8 @@ public class Monster : MonoBehaviour, IBulletEvent
 
 
         //화면 밖으로 넘어갔으면 삭제됩니다.
-        if (Mathf.Abs(transform.position.x) >= 20.0f ||
-           Mathf.Abs(transform.position.y) >= 20.0f)
+        if (Mathf.Abs(transform.position.x) >= 200.0f ||
+           Mathf.Abs(transform.position.y) >= 200.0f)
         {
             Destroy(gameObject);
         }

@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 7293671902203925870}
   - component: {fileID: 8506438617539864355}
   - component: {fileID: -618379581285387441}
+  - component: {fileID: -4814797141756712848}
   m_Layer: 0
   m_Name: BossMonster
   m_TagString: Monster
@@ -259,6 +260,21 @@ MonoBehaviour:
   m_enable: 1
   m_speed: 3
   m_direction: {x: 0, y: 0, z: 0}
+--- !u!114 &-4814797141756712848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4568467481694720653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258a111dd115c45448d87fe5fe2bf09b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_targetTag: Player
+  m_damage: 1
+  m_isAutoDestroy: 0
 --- !u!1 &5147847098745714403
 GameObject:
   m_ObjectHideFlags: 0

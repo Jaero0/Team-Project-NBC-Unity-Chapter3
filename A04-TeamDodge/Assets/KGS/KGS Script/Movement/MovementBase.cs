@@ -10,7 +10,7 @@ public class MovementBase : MonoBehaviour
     public float        Speed { set => m_speed = value; get => m_speed; }
     public Vector3      Direction{ set => m_direction = value; get => m_direction; }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (m_enable)
         {

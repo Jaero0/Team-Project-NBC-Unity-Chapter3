@@ -10,8 +10,8 @@ public partial class BossMonster : Monster
     public enum BossMonsterState
     {
         Move,
-        Shot0,
-        Shot1,
+        Fire0,
+        Fire1,
         Idle
     }
 
@@ -46,7 +46,5 @@ public partial class BossMonster : Monster
     
 
     private BossMonsterState            m_state = BossMonsterState.Move;
-
-    [SerializeField] private GameObject bulletPrefab;
 
 }

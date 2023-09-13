@@ -8,9 +8,6 @@ public class SoundManager : MonoBehaviour
     public AudioSource audioSource;
     public static SoundManager instance;
     public AudioClip[] bglist;
-    // Start is called before the first frame update
-
-
 
     private void Awake()
     {

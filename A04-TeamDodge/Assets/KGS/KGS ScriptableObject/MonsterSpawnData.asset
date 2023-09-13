@@ -21,4 +21,4 @@ MonoBehaviour:
   bulletPrefabArray:
   - {fileID: 1637239397453452236, guid: ce28332ba2565294f9b39959b2c45cee, type: 3}
   bulletSpawnTime: 0.5
-  bulletSpawnDistance: 15
+  bulletSpawnDistance: 10

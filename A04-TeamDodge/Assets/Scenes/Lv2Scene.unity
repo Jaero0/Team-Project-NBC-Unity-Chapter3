@@ -7887,7 +7887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   click: {fileID: 8300000, guid: b6a8ff9ee828f33418f7170223f607a0, type: 3}
-  mainBgm: {fileID: 8300000, guid: 944c53e031629dc4bb7ede8ef062eaee, type: 3}
+  mainBgm: {fileID: 8300000, guid: a4e37550df876a14eb0b125633a722c8, type: 3}
   gameOver: {fileID: 8300000, guid: 8b03334d2eee2e84387106e72614ca63, type: 3}
   gameWin: {fileID: 8300000, guid: 933f86890b03f8b449c3406bfba13417, type: 3}
 --- !u!224 &6295122463233871183

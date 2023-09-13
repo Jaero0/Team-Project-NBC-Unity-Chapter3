@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 8d5c25bcb805b1241a405dcefb3abccd, type: 3}
   m_Name: ItemSpawnData
   m_EditorClassIdentifier: Assembly-CSharp::ItemSpawnData
   ItemPrefabs:
   - {fileID: 1280513260207505537, guid: c2ce4ecdb0326dc4897e35c52f88ca32, type: 3}
+  - {fileID: 1280513260207505537, guid: 64b80eac663a55e4aa3a02ce0c6ff1d2, type: 3}
   - {fileID: 1280513260207505537, guid: ac25ad6dabc53a742af9167faba75284, type: 3}
   - {fileID: 1280513260207505537, guid: ad484ee38a6091b478a0b7c892912b6a, type: 3}
-  - {fileID: 1280513260207505537, guid: 64b80eac663a55e4aa3a02ce0c6ff1d2, type: 3}
   - {fileID: 1280513260207505537, guid: 2916f294c280fb94383302f12368bdab, type: 3}
   - {fileID: 1280513260207505537, guid: 7519ff90ae41cb94abd74dd58d04d735, type: 3}
   - {fileID: 1280513260207505537, guid: a6da202bec20add4d9a901ac4085ecbd, type: 3}
-  - {fileID: 1280513260207505537, guid: c15631acbf71c5f4f9608d9d0a4dc46a, type: 3}
   - {fileID: 1280513260207505537, guid: b364df22ec266514baf938154a0d435f, type: 3}
   - {fileID: 5888259506820261100, guid: 170e891c31ca68a4dbdb3941e60b7945, type: 3}
+  - {fileID: 1280513260207505537, guid: c15631acbf71c5f4f9608d9d0a4dc46a, type: 3}

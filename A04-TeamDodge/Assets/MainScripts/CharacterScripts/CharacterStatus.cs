@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterStatus : CharacterEventController
+public class CharacterStatus : CharacterEventController, IBulletEvent
 {
     [SerializeField] private int hp;
     [SerializeField] private int maxHp;
@@ -12,7 +12,6 @@ public class CharacterStatus : CharacterEventController
     private void Start()
     {
         hp = maxHp;
-        Invoke("CallDeathEvent", 2f);
     }
     public void TakeDamage(int damage)
     {
@@ -28,4 +27,5 @@ public class CharacterStatus : CharacterEventController
         }
         hpBar.rectTransform.localScale = new Vector3((float)hp / maxHp, 1, 1);
     }
+
 }

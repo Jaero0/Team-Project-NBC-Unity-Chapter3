@@ -28,6 +28,16 @@ public class MonsterManager : MonoBehaviour
         m_monsterDieEvent.Invoke(identifier, position);
     }
 
+    public void CreateBoss()
+    {
+
+        if(!m_isBossSpawn)
+        {
+            m_isBossSpawn = true;
+            var monster = Instantiate(m_monsterSpawnData.bossMonsterPrefab, Vector3.zero, Quaternion.identity);
+        }
+
+    }
 
     private void Awake()
     {
@@ -115,6 +125,8 @@ public class MonsterManager : MonoBehaviour
     [SerializeField] private bool               m_monsterSpawnOnOff;
     [SerializeField] private bool               m_bulletSpawnOnOff;
 
+
+    private bool                        m_isBossSpawn = false;
 
     private event Action<int, Vector3> m_monsterDieEvent;
 

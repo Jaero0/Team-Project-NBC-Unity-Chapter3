@@ -48,13 +48,16 @@ public class Monster : MonoBehaviour, IBulletEvent
         m_movement = GetComponent<MovementBase>();
         Debug.Assert(m_movement != null);
 
-        //테이블에서 데이터를 가져옵니다.
-        m_status.hp = MonsterManager.Instance.MonsterTable[m_identifier].hp;
+        
 
     }
 
     protected virtual void Start()
     {
+
+        //테이블에서 데이터를 가져옵니다.
+        Debug.Log($"Identifier: {m_identifier}");
+        m_status.hp = MonsterManager.Instance.MonsterTable[m_identifier].hp;
 
         m_movement.Direction  = Vector3.Normalize(MonsterManager.Instance.TargetGameObject.transform.position - transform.position);
 

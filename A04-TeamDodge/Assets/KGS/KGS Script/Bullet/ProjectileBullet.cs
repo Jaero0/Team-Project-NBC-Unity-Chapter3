@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileBullet : MonoBehaviour, IBulletEvent
 {
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         Destroy(gameObject);
     }

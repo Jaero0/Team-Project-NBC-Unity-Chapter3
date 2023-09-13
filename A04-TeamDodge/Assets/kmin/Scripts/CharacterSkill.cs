@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterSkill : MonoBehaviour
 {
-    [SerializeField] private Transform skillTransform;
+    [SerializeField] public Transform skillTransform;
     [SerializeField] private float spinSpeed;
     private float temp = 0;
    

@@ -136,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: "\uD14C\uC2A4\uD2B8\uC6A9 \uB9C8\uC6B0\uC2A4\uB85C \uB04C\uC5B4\uC11C
     \uC0AC\uC6A9\uD558\uC138\uC694"
+  towerData: {fileID: 11400000, guid: bb072d1efbd0d9e45bd0cbcbddec242d, type: 2}
 --- !u!114 &-235231837741633982
 MonoBehaviour:
   m_ObjectHideFlags: 0

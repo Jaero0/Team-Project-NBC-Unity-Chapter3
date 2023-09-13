@@ -62,7 +62,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &5816721417121174944
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -92,7 +92,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -135,13 +135,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22fb68033fd46f04fb0f3a07c8b84afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_identifier: 2
   m_spriteRenderer: {fileID: 2957865225430049298}
   m_animator: {fileID: 4415459863683516761}
   m_flipSpriteX: 1
   m_flipSpriteY: 0
   m_shotDelay: 2
   m_shotDistance: 4
-  bulletPrefab: {fileID: 332754983943082225, guid: 9448bfd4ffcbd1b4fbac56754bb85f7d, type: 3}
+  m_idleDuration: 2
+  bulletPrefab: {fileID: 1637239397453452236, guid: ce28332ba2565294f9b39959b2c45cee, type: 3}
 --- !u!1 &6206615937983836609
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +217,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 15
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

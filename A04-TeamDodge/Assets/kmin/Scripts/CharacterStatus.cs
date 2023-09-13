@@ -16,6 +16,10 @@ public class CharacterStatus : CharacterEventController
     public void TakeDamage(int damage)
     {
         hp -= damage;
+        if (hp > maxHp)
+        {
+            hp = maxHp;
+        }
         if (hp <= 0)
         {
             hp = 0;

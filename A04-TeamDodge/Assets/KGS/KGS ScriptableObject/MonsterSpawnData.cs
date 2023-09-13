@@ -7,7 +7,11 @@ public class MonsterSpawnData : ScriptableObject
 {
 
     public GameObject[] monsterPrefabArray;
-    public float        spawnTime;
-    public float        distance;
+    public float        monsterSpawnTime;
+    public float        monsterSpawnDistance;
+
+    public GameObject[] bulletPrefabArray;
+    public float        bulletSpawnTime;
+    public float        bulletSpawnDistance;
 
 }

@@ -13,6 +13,7 @@ public class InductiveDirectionMovement : MovementBase
         {
 
             Vector3 delta           = (MonsterManager.Instance.TargetGameObject.transform.position - transform.position);
+            delta.z                 = 0.0f;                             //x, y좌표만 사용하고 z는 0으로 둡니다.
             Vector3 deltaNormalize  = Vector3.Normalize(delta);
 
             //거리가 충분히 가깝고 각도 차이가 충분히 가까우면 이동 방향을 회전합니다.

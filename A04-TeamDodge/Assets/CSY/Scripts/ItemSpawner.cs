@@ -39,11 +39,11 @@ public class ItemSpawner : MonoBehaviour
     {
         if (instance != null && instance != this)
         {
-            Destroy(gameObject);
+            Destroy(instance.gameObject);
             return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         PrefabIndex.Clear();
         for ( int i=0; i < itemSpawnData.ItemPrefabs.Length; i++)

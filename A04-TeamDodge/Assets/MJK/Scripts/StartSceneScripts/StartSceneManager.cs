@@ -7,12 +7,27 @@ using UnityEngine.SceneManagement;
 
 public class StartMeunManager : MonoBehaviour
 {
+    SoundManager sound;
     public GameObject OPtionUI;
 
+    private float musicVolume = 0.5f; // 기본 볼륨 값
+
+    // 볼륨 값 저장
+    public void SetMusicVolume(float volume)
+    {
+        musicVolume = volume;
+    }
+
+    // 볼륨 값 로드
+    public float GetMusicVolume()
+    {
+        return musicVolume;
+    }
 
     public void OnButtonClick() //StartBtn
     {
         SceneManager.LoadScene(1);
+        
     }
 
 

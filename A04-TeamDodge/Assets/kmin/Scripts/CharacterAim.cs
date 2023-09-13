@@ -9,6 +9,7 @@ public class CharacterAim : MonoBehaviour
     [SerializeField] private SpriteRenderer[] weaponSprite;
     [SerializeField] private Transform[] weaponPivot;
     [SerializeField] public Transform weaponOrigin;
+    [SerializeField] public Transform weaponParent;
     public float shootingSpeed;
     public float shootInterval;
     private float shootCool = 0;
@@ -27,11 +28,17 @@ public class CharacterAim : MonoBehaviour
     {
         _controller.OnLookEvent += Look;
         _controller.OnShootEvent += Shoot;
+        weaponParent.DetachChildren();
+        shootCool = shootInterval;
     }
 
     void Update()
     {
-        if(shootCool < shootInterval)
+        if(shootCool >= shootInterval)
+        {
+            weaponOrigin.position = transform.position;
+        }
+        else if(shootCool < shootInterval)
         {
             shootCool += Time.deltaTime;
         }
@@ -54,7 +61,7 @@ public class CharacterAim : MonoBehaviour
 
     private void Shoot()
     {
-        if (shootCool > shootInterval)
+        if (shootCool >= shootInterval)
         {
             shootDirection = direction;
             Invoke("ResetPosition", shootInterval);

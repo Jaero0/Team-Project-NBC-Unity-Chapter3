@@ -43,7 +43,7 @@ Transform:
   - {fileID: 8876229360657288662}
   - {fileID: 5911327252618482556}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5492618821902492941
 MonoBehaviour:
@@ -101,7 +101,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!61 &144027578730989321
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -279,6 +279,11 @@ MonoBehaviour:
   - {fileID: 3980606484127188727}
   - {fileID: 1925470482473521188}
   skill: {fileID: 8628378600620416660}
+  weapons:
+  - {fileID: 2288367433929749711}
+  - {fileID: 8351012945716590535}
+  - {fileID: 7133506311270658474}
+  - {fileID: 6796673252952855389}
 --- !u!1 &835095963209820136
 GameObject:
   m_ObjectHideFlags: 0
@@ -2072,7 +2077,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.3, y: -0.05}

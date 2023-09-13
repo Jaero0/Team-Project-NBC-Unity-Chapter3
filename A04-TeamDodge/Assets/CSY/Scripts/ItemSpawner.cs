@@ -114,8 +114,3 @@ public class ItemSpawner : MonoBehaviour
     }
 }
 
-[CreateAssetMenu(fileName = "ItemSpawnData", menuName = "ScriptableObjects/ItemSpawnData", order = 3)]
-public class ItemSpawnData : ScriptableObject
-{
-    public GameObject[] ItemPrefabs;
-}

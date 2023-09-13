@@ -11,6 +11,7 @@ public class CharacterSkill : MonoBehaviour
 
     void Update()
     {
+        skillTransform.position = transform.position;
         temp += Time.deltaTime;
         skillTransform.rotation = Quaternion.Euler(0, 0, - temp * spinSpeed);
     }

@@ -27,7 +27,7 @@ public class StartMeunManager : MonoBehaviour
     public void OnButtonClick() //StartBtn
     {
         SceneManager.LoadScene(1);
-        
+
     }
 
 

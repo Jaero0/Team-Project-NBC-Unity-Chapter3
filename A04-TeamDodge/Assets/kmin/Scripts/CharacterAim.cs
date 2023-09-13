@@ -28,11 +28,13 @@ public class CharacterAim : MonoBehaviour
     {
         _controller.OnLookEvent += Look;
         _controller.OnShootEvent += Shoot;
+        weaponParent.DetachChildren();
+        shootCool = shootInterval;
     }
 
     void Update()
     {
-        if(shootCool > shootInterval)
+        if(shootCool >= shootInterval)
         {
             weaponOrigin.position = transform.position;
         }
@@ -59,11 +61,10 @@ public class CharacterAim : MonoBehaviour
 
     private void Shoot()
     {
-        if (shootCool > shootInterval)
+        if (shootCool >= shootInterval)
         {
             shootDirection = direction;
             Invoke("ResetPosition", shootInterval);
-            weaponParent.DetachChildren();
             shootCool = 0;
         }
     }

@@ -1,38 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
-using DG.Tweening.Core.Easing;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-
-public class SoundManager : StartMeunManager
+public class SoundManager : MonoBehaviour
 {
-    public AudioSource musicSource;
-    public AudioSource btnSounrce_go;
-    public AudioSource btnSounrce_Character;
+    public AudioSource audioSource;
+    public static SoundManager instance;
+    public AudioClip[] bglist;
+    // Start is called before the first frame update
 
 
-    private void Start()
+
+    private void Awake()
     {
-        musicSource.Play();
+        if (instance == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+            instance = this;
+            DontDestroyOnLoad(instance);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        for (int i = 0; i < bglist.Length; i++)
+        {
+            if (arg0.name == bglist[i].name)
+                BgSoundPlay(bglist[i]);
+
+        }
+    }
+
+    public void BgSoundPlay(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.loop = true;
+        audioSource.volume = 0.2f;
+        audioSource.Play();
     }
 
     public void SetMusicVolume(float volume)
     {
-        musicSource.volume = volume;
-    }
-    public void SetButtonVolume(float volume)
-    {
-        btnSounrce_go.volume = volume;
-        btnSounrce_Character.volume = volume;
+        PlayerPrefs.SetFloat("MusicVolume", volume);
+        PlayerPrefs.Save(); // 변경 사항 저장
+        Debug.Log("저장");
     }
 
-    public void OnSfx()
+    // 볼륨 값 로드
+    public float GetMusicVolume()
     {
-        btnSounrce_go.Play();
+        return PlayerPrefs.GetFloat("MusicVolume", 0.5f); // 기본값 설정 (설정이 없는 경우)
     }
-    public void OnCharecter()
-    {
-        btnSounrce_Character.Play();
-    }
+
+
 }

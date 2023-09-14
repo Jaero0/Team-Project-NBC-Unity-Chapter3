@@ -6,11 +6,12 @@ using UnityEngine.InputSystem;
 public class CharacterInputController : CharacterEventController
 {
     private Camera m_Camera;
-    public int TowerParts = 0;
+    public int TowerParts;
 
     private void Awake()
     {
         m_Camera = Camera.main;
+        TowerParts = 5;
     }
 
     public void OnMove(InputValue value)
